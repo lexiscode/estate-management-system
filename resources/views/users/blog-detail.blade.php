@@ -1,8 +1,12 @@
-<?php include'header.php';?>
+@extends('users.layout.master')
+
+@section('blog-detail')
+
+
 <!-- banner -->
 <div class="inside-banner">
-  <div class="container"> 
-    <span class="pull-right"><a href="#">Home</a> / Blogs</span>
+  <div class="container">
+    <span class="pull-right"><a href="{{ route('view.home') }}">Home</a> / Blogs</span>
     <h2>Blogs</h2>
 </div>
 </div>
@@ -17,7 +21,7 @@
   <!-- blog detail -->
   <h2>Creative business to takeover the market</h2>
   <div class="info">Posted on: Jan 20, 2013</div>
-  <img src="images/blog/1.jpg" class="thumbnail img-responsive"  alt="blog title">
+  <img src={{ asset("users/images/blog/1.jpg") }} class="thumbnail img-responsive"  alt="blog title">
  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
@@ -40,54 +44,54 @@
                 <div class="tab-pane" id="tab1">
                   <ul class="list-unstyled">
                   <li>
-                  <h5><a href="blogdetail.php">Real estate marketing growing</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Real estate marketing growing</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
                              <li>
-                  <h5><a href="blogdetail.php">Real estate marketing growing</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Real estate marketing growing</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
                              <li>
-                  <h5><a href="blogdetail.php">Real estate marketing growing</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Real estate marketing growing</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
                             </ul>
                 </div>
                 <div class="tab-pane" id="tab2">
                 <ul  class="list-unstyled">
                   <li>
-                  <h5><a href="blogdetail.php">Market update on new apartments</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Market update on new apartments</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
 
                   <li>
-                  <h5><a href="blogdetail.php">Market update on new apartments</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Market update on new apartments</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
 
                   <li>
-                  <h5><a href="blogdetail.php">Market update on new apartments</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Market update on new apartments</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
                             </ul>
                 </div>
                 <div class="tab-pane active" id="tab3">
-                <ul class="list-unstyled">      
+                <ul class="list-unstyled">
                             <li>
-                  <h5><a href="blogdetail.php">Creative business to takeover the market</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Creative business to takeover the market</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
-                            
+
                             <li>
-                  <h5><a href="blogdetail.php">Creative business to takeover the market</a></h5>
-                            <div class="info">Posted on: Jan 20, 2013</div>  
+                  <h5><a href="{{ route('view.blog-detail') }}">Creative business to takeover the market</a></h5>
+                            <div class="info">Posted on: Jan 20, 2013</div>
                             </li>
                             </ul>
                 </div>
               </div>
-              
-              
-              
+
+
+
             </div>
   <!-- tabs -->
 
@@ -97,4 +101,4 @@
 </div>
 </div>
 
-<?php include'footer.php';?>
+@endsection

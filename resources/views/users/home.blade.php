@@ -185,7 +185,7 @@
                                 </a>
                             @endif
                         </div>
-                        
+
                     </div>
                     <div class="col-sm-6">
                         <h4>New User Sign Up</h4>
@@ -210,142 +210,142 @@
                 <div class="image-holder"><img src={{ asset("users/images/properties/1.jpg") }} class="img-responsive" alt="properties" />
                     <div class="status sold">Sold</div>
                     </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/2.jpg") }} class="img-responsive"
                         alt="properties" />
                     <div class="status new">New</div>
                 </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/3.jpg") }} class="img-responsive"
                         alt="properties" /></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/4.jpg") }} class="img-responsive"
                         alt="properties" /></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/1.jpg") }} class="img-responsive"
                         alt="properties" />
                 <div class="status sold">Sold</div>
                 </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/2.jpg") }} class="img-responsive"
                         alt="properties" />
                     <div class="status sold">Sold</div>
                 </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/3.jpg") }} class="img-responsive"
                         alt="properties" />
                     <div class="status new">New</div>
                 </div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/4.jpg") }} class="img-responsive"
                         alt="properties" /></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/1.jpg") }} class="img-responsive"
                         alt="properties" /></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/2.jpg") }} class="img-responsive"
                         alt="properties" /></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/3.jpg") }} class="img-responsive"
                         alt="properties" /></div>
-                <h4><a href="property-detail.php">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Living Room">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip"
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
-                <a class="btn btn-primary" href="property-detail.php">View Details</a>
+                <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
 
         </div>
@@ -357,7 +357,7 @@
                 <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
                     Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in
                     their exact original form, accompanied by English versions from the 1914 translation by H.
-                    Rackham.<br><a href="about.php">Learn More</a></p>
+                    Rackham.<br><a href="{{ route('view.about') }}">Learn More</a></p>
 
             </div>
             <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
@@ -376,9 +376,9 @@
                                 <div class="col-lg-4"><img src={{ asset("users/images/properties/1.jpg") }} class="img-responsive"
                                         alt="properties" /></div>
                                 <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                    <h5><a href="{{ route('view.property-detail') }}">Integer sed porta quam</a></h5>
                                     <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
+                                    <a href="{{ route('view.property-detail') }}" class="more">More Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -387,9 +387,9 @@
                                 <div class="col-lg-4"><img src={{ asset("users/images/properties/2.jpg") }} class="img-responsive"
                                         alt="properties" /></div>
                                 <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                    <h5><a href="{{ route('view.property-detail') }}">Integer sed porta quam</a></h5>
                                     <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
+                                    <a href="{{ route('view.property-detail') }}" class="more">More Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -398,9 +398,9 @@
                                 <div class="col-lg-4"><img src={{ asset("users/images/properties/3.jpg") }} class="img-responsive"
                                         alt="properties" /></div>
                                 <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                    <h5><a href="{{ route('view.property-detail') }}">Integer sed porta quam</a></h5>
                                     <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
+                                    <a href="{{ route('view.property-detail') }}" class="more">More Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -409,9 +409,9 @@
                                 <div class="col-lg-4"><img src={{ asset("users/images/properties/4.jpg") }} class="img-responsive"
                                         alt="properties" /></div>
                                 <div class="col-lg-8">
-                                    <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                    <h5><a href="{{ route('view.property-detail') }}">Integer sed porta quam</a></h5>
                                     <p class="price">$300,000</p>
-                                    <a href="property-detail.php" class="more">More Detail</a>
+                                    <a href="{{ route('view.property-detail') }}" class="more">More Detail</a>
                                 </div>
                             </div>
                         </div>

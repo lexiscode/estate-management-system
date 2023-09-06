@@ -53,6 +53,12 @@
     <!-- Forgot password page here-->
     @yield('forgot-password')
 
+    <!-- Property details here-->
+    @yield('property-details')
+
+    <!-- Blog detail here-->
+    @yield('blog-detail')
+
 
     <!-- footer section -->
     @include('users.layout.footer')
