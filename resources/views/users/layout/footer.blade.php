@@ -10,6 +10,7 @@
                     <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('view.agents') }}">Agents</a></li>
                     <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('view.blog') }}">Blog</a></li>
                     <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('view.contact') }}">Contact</a></li>
+                    <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('admin.login.index') }}">*Admin Login*</a></li>
                 </ul>
             </div>
 

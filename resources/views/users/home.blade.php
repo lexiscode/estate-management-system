@@ -203,7 +203,7 @@
 
 <!-- banner -->
 <div class="container">
-    <div class="properties-listing spacer"> <a href="buysalerent.php" class="pull-right viewall">View All Listing</a>
+    <div class="properties-listing spacer"> <a href="{{ route('view.buysalerent') }}" class="pull-right viewall">View All Listing</a>
         <h2>Featured Properties</h2>
         <div id="owl-example" class="owl-carousel">
             <div class="properties">

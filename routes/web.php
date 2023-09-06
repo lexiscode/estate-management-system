@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 require __DIR__ . '/users.php';
+require __DIR__ . '/admin.php';
 
 Route::get('/dashboard', function () {
     return view('dashboard');
