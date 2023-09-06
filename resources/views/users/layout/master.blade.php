@@ -47,6 +47,12 @@
     <!-- header menu here -->
     @yield('buysalerent')
 
+    <!-- Registration page here -->
+    @yield('register')
+
+    <!-- Forgot password page here-->
+    @yield('forgot-password')
+
 
     <!-- footer section -->
     @include('users.layout.footer')

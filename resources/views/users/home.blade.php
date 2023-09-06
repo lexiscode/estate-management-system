@@ -2,6 +2,7 @@
 
 @section('home')
 
+
 <div class="">
 
     <div id="slider" class="sl-slider-wrapper">
@@ -148,6 +149,57 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div id="loginpop" class="modal fade">
+    <div class="modal-dialog">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-sm-6 login">
+                        <h4>Login</h4>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail2"
+                                placeholder="Enter email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputPassword2">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2"
+                                placeholder="Password" name="password" required>
+                        </div>
+                        <div class="checkbox">
+                            <label for="remember">
+                                <input type="checkbox" name="remember" id="remember"> Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-success">Sign in</button>
+
+                        <div class="flex items-center justify-end mt-4">
+                            @if (Route::has('password.request'))
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                                    {{ __('Forgot your password?') }}
+                                </a>
+                            @endif
+                        </div>
+                        
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>New User Sign Up</h4>
+                        <p>Join today and get updated with all the properties deal happening around.</p>
+                        <a class="btn btn-info" onclick="window.location.href='{{ route('register') }}'">Join
+                            Now</a>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 
 <!-- banner -->
 <div class="container">

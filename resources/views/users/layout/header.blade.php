@@ -3,28 +3,15 @@
 
     <div class="navbar-inverse" role="navigation">
         <div class="container">
-            <div class="navbar-header">
-
-
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-            </div>
-
 
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="{{ route('view.home') }}">Home</a></li>
-                    <li><a href="{{ route('view.about') }}">About</a></li>
-                    <li><a href="{{ route('view.agents') }}">Agents</a></li>
-                    <li><a href="{{ route('view.blog') }}">Blog</a></li>
-                    <li><a href="{{ route('view.contact') }}">Contact</a></li>
+                    <li class="active"><a href="{{ route('view.home') }}"><b>Home</b></a></li>
+                    <li><a href="{{ route('view.about') }}"><b>About</b></a></li>
+                    <li><a href="{{ route('view.agents') }}"><b>Agents</b></a></li>
+                    <li><a href="{{ route('view.blog') }}"><b>Blog</b></a></li>
+                    <li><a href="{{ route('view.contact') }}"><b>Contact</b></a></li>
                 </ul>
             </div>
             <!-- #Nav Ends -->

@@ -1,4 +1,4 @@
-@extends('general-users.layout.master')
+@extends('users.layout.master')
 
 @section('contact')
     <!-- banner -->
