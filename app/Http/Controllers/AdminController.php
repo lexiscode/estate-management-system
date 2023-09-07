@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Admin;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Illuminate\Auth\Events\Registered;
+
 
 class AdminController extends Controller
 {
@@ -28,7 +27,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin-dashboard');
+        return view('admin.dashboard.index');
     }
 
     public function logout(Request $request)
