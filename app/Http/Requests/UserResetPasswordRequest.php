@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SendResetLinkRequest extends FormRequest
+class UserResetPasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true; // change it to "true"
+        return true;
     }
 
     /**
@@ -22,9 +22,9 @@ class SendResetLinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', 'exists:admins,email']
+            'email' => ['required', 'email', 'exists:users,email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required']
         ];
-
-        //NB: The above explains syntax "exists:table-name,table-colum"
     }
 }

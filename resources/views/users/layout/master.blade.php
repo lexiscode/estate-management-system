@@ -53,6 +53,9 @@
     <!-- Forgot password page here-->
     @yield('forgot-password')
 
+    <!-- Reset password page here-->
+    @yield('reset-password')
+
     <!-- Property details here-->
     @yield('property-details')
 

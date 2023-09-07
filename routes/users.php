@@ -22,14 +22,4 @@ Route::get('blog-detail', [BlogDetailController::class, 'index'])->name('view.bl
 
 Route::post('newsletter', [NewsletterController::class, 'store'])->name('store.newsletter');
 
-/* This route is for registration and login purposes
-Route::group(['as'=>'users.', 'prefix' =>'users'], function(){
 
-    Route::get('register', [RegisterController::class, 'create'])->name('signup');
-    Route::post('register', [RegisterController::class, 'store'])->name('store');
-
-    Route::get('login', [LoginController::class, 'create'])->name('signin');
-    Route::post('login', [LoginController::class, 'verify'])->name('login');
-
-});
-*/

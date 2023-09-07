@@ -161,6 +161,12 @@
                     <div class="col-sm-6 login">
                         <h4>Login</h4>
 
+                        @if (session()->has('success'))
+                            <p style="text-align:center; color: green">
+                                <i>{{ session()->get('success') }}</i>
+                            </p>
+                        @endif
+
                         <div class="form-group">
                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
                             <input type="email" class="form-control" id="exampleInputEmail2"
@@ -179,8 +185,8 @@
                         <button type="submit" class="btn btn-success">Sign in</button>
 
                         <div class="flex items-center justify-end mt-4">
-                            @if (Route::has('password.request'))
-                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                            @if (Route::has('user.forgot-password'))
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('user.forgot-password') }}">
                                     {{ __('Forgot your password?') }}
                                 </a>
                             @endif

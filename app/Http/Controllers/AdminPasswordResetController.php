@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
-use App\Http\Requests\SendResetLinkRequest;
+use App\Http\Requests\SendAdminResetLinkRequest;
 use App\Http\Requests\AdminResetPasswordRequest;
 use App\Models\Admin;
 use App\Mail\AdminSendResetLinkMail;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 
-class PasswordResetController extends Controller
+class AdminPasswordResetController extends Controller
 {
     /**
      * Display the password reset link request view.
@@ -24,7 +24,7 @@ class PasswordResetController extends Controller
     }
 
 
-    public function sendResetLink(SendResetLinkRequest $request)
+    public function sendResetLink(SendAdminResetLinkRequest $request)
     {
         $token = Str::random(64);
 
