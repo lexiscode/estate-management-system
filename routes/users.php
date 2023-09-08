@@ -5,6 +5,7 @@ use App\Http\Controllers\MainMenu\ViewController;
 use App\Http\Controllers\HeaderMenu\BuySaleRentController;
 use App\Http\Controllers\BlogDetailController;
 use App\Http\Controllers\PropertyDetailController;
+use App\Http\Controllers\NewsletterController;
 
 
 // These routes is for the main menu
@@ -21,5 +22,4 @@ Route::get('property-detail', [PropertyDetailController::class, 'index'])->name(
 Route::get('blog-detail', [BlogDetailController::class, 'index'])->name('view.blog-detail');
 
 Route::post('newsletter', [NewsletterController::class, 'store'])->name('store.newsletter');
-
 

@@ -19,7 +19,7 @@ class AdminController extends Controller
     public function login(Request $request)
     {
         if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
-            return redirect()->route('admin.dashboard')->with('success', 'Login is successful');
+            return redirect()->route('admin.dashboard.index')->with('success', 'Login is successful');
         }else{
             return back()->with('error', 'Invalid credentials');
         }
