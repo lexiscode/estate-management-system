@@ -42,13 +42,13 @@ class PropertyController extends Controller
         // Validation rules for the form fields
         $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'property_details' => ['nullable', 'string'],
+            'property_details' => ['required', 'string'],
             'property_type' => ['required', 'string'],
             'price' => ['required', 'numeric'],
             'location' => ['required', 'string'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:1024'],
             'agent_name' => ['required', 'string', 'max:255'],
-            'agent_no' => ['required', 'string', 'max:255'],
+            'agent_no' => ['required', 'string', 'max:14'],
             'status' => ['required', 'string'],
         ]);
 
@@ -132,7 +132,7 @@ class PropertyController extends Controller
 
         // Handle image upload if a new image is provided
         if ($request->hasFile('image')) {
-            // Similar image upload logic as in the store() method
+
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
             $imagePath = 'uploads/properties/' . $imageName;

@@ -183,6 +183,7 @@ var icon = function (iconClassName, tagName) {
     tagName = tagName || 'i';
     return '<' + tagName + ' class="' + iconClassName + '"/>';
 };
+
 var ui = {
     editor: editor,
     toolbar: toolbar,

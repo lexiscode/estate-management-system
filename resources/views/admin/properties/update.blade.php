@@ -9,7 +9,7 @@
 
         <div class="card card-warning">
             <div class="card-header">
-                <h4>Create New Property Here!</h4>
+                <h4>Update Property Here!</h4>
                 <form class="card-header-form">
                     <div class="input-group">
 

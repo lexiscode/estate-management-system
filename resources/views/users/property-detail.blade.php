@@ -1,6 +1,7 @@
 @extends('users.layout.master')
 
 @section('property-details')
+
     <!-- banner -->
     <div class="inside-banner">
         <div class="container">
@@ -10,8 +11,21 @@
     </div>
     <!-- banner -->
 
-
     <div class="container">
+
+        <!-- Display successfully sent enquiry message if it exists -->
+        <!-- the alert is available there but not showing out in the webpage, but its there hidden-->
+        @if (session('enquiry-success'))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>×</span>
+                    </button>
+                    {{ session('enquiry-success') }}
+                </div>
+            </div>
+        @endif
+
         <div class="properties-listing spacer">
 
             <div class="row">
@@ -55,8 +69,6 @@
                         </div>
 
                     </div>
-
-
 
                     <div class="advertisement">
                         <h4>Advertisements</h4>
@@ -121,9 +133,6 @@
 
                             </div>
 
-
-
-
                             <div class="spacer">
                                 <h4><span class="glyphicon glyphicon-th-list"></span> Properties Detail</h4>
                                 <p>Efficiently unleash cross-media information without cross-media value. Quickly maximize
@@ -167,23 +176,30 @@
                                 </div>
 
                             </div>
+
                             <div class="col-lg-12 col-sm-6 ">
                                 <div class="enquiry">
                                     <h6><span class="glyphicon glyphicon-envelope"></span> Post Enquiry</h6>
-                                    <form role="form">
-                                        <input type="text" class="form-control" placeholder="Full Name" />
-                                        <input type="text" class="form-control" placeholder="you@yourdomain.com" />
-                                        <input type="text" class="form-control" placeholder="your number" />
-                                        <textarea rows="6" class="form-control" placeholder="Whats on your mind?"></textarea>
-                                        <button type="submit" class="btn btn-primary" name="Submit">Send
-                                            Message</button>
+                                    <form role="form" method="POST" action="{{ route('admin.post-enquiry.store') }}">
+                                        @csrf
+                                        <input type="text" class="form-control" name='name' placeholder="Full Name" />
+                                        <input type="text" class="form-control" name="email" placeholder="you@youremail.com" />
+                                        <input type="text" class="form-control" name="phone_no" placeholder="your phone number" />
+                                        <textarea rows="6" class="form-control" name="message" placeholder="What's on your mind?"></textarea>
+
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+
                                     </form>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
+
+

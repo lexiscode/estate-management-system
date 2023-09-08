@@ -22,6 +22,10 @@
 
             <li><a class="nav-link" href="{{ route('admin.property.index') }}"><i class="far fa-square"></i> <span>Properties</span></a></li>
 
+            <li><a class="nav-link" href="{{ route('admin.blog.index') }}"><i class="far fa-square"></i> <span>Blogs</span></a></li>
+
+            <li><a class="nav-link" href="{{ route('admin.post-enquiry.index') }}"><i class="far fa-square"></i> <span>Messages</span></a></li>
+
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                     <span>Forms</span></a>

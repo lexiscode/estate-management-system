@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/weather-icon/css/weather-icons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/summernote/summernote-bs4.css') }}">
+  <link rel="stylesheet" href="{{ asset('admin/assets/modules/jquery-selectric/selectric.css') }}">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
@@ -49,6 +50,15 @@
         @yield('show-property-details')
         @yield('update-properties')
 
+        <!-- Blogs section -->
+        @yield('index-blogs')
+        @yield('create-blogs')
+        @yield('show-blog-details')
+        @yield('update-blogs')
+
+        <!-- Messages section -->
+        @yield('post_enquiries')
+
       </div>
       <footer class="main-footer">
         <div class="footer-left">
@@ -77,10 +87,10 @@
   <script src="{{ asset('admin/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
   <script src="{{ asset('admin/assets/modules/summernote/summernote-bs4.js') }}"></script>
   <script src="{{ asset('admin/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+  <script src="{{ asset('admin/assets/modules/jquery-selectric/jquery.selectric.min.js') }}"></script>
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('admin/assets/js/page/index-0.js') }}"></script>
-
 
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>

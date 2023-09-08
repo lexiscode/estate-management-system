@@ -7,7 +7,9 @@ use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\AdminPasswordResetController;
 
 use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostEnquiryController;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -25,12 +27,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('reset-password/{token}', [AdminPasswordResetController::class, 'resetPassword'])->name('reset-password');
     Route::post('reset-password', [AdminPasswordResetController::class, 'handleResetPassword'])->name('reset-password.send');
 
-    // This route is for the DashboardController
+    // This route is for the admin Dashboard page Controller
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // This route is for the PropertyController
     Route::resource('property', PropertyController::class);
 
+    // This route is for the BlogController
+    Route::resource('blog', BlogController::class);
+
+    // This route is for the PostEnquireController
+    Route::resource('post-enquiry', PostEnquiryController::class);
 
 });
 

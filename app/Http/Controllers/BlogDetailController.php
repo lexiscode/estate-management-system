@@ -12,3 +12,4 @@ class BlogDetailController extends Controller
         return view('users.blog-detail');
     }
 }
+
