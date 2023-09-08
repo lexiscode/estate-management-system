@@ -19,7 +19,7 @@ class PropertyController extends Controller
     {
         // Retrieve all properties with their related availabilities
         //$properties = Property::with('availability')->get();
-        $properties = Property::with('availability')->simplePaginate(5);
+        $properties = Property::with('availability')->orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('admin.properties.index', compact('properties'));
     }
@@ -95,7 +95,7 @@ class PropertyController extends Controller
             $property->availability()->save($availability);
         }
 
-        return redirect()->route('admin.property.index');
+        return redirect()->route('admin.property.index')->with('creation-success', 'New property has been added successfully!');
     }
 
 
@@ -171,7 +171,7 @@ class PropertyController extends Controller
             $property->availability->delete();
         }
 
-        return redirect()->route('admin.property.index');
+        return redirect()->route('admin.property.index')->with('update-success', 'The property has been updated successfully!');
     }
 
 

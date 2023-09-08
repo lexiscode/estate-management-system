@@ -27,6 +27,29 @@
             </div>
             <div class="card-body">
 
+                <!-- Display new property creation success message if it exists -->
+                @if (session('creation-success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                            </button>
+                            {{ session('creation-success') }}
+                        </div>
+                    </div>
+                @endif
+                <!-- Display updated property success message if it exists -->
+                @if (session('update-success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                            </button>
+                            {{ session('update-success') }}
+                        </div>
+                    </div>
+                @endif
+
                 <!-- This is a simple table -->
                 <table class="table">
                     <thead>
@@ -41,35 +64,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($properties->isEmpty())
+                        @if ($properties->isEmpty())
                             <p>No properties found.</p>
                         @else
-
                             @foreach ($properties as $property)
-                            <tr>
-                                <td>{{ $property->title }}</td>
-                                <td>{{ $property->price }}</td>
-                                <td>{{ $property->status }}</td>
-                                <td>{{ $property->property_type }}</td>
-                                <td>
-                                    <div style="text-align: center;">
+                                <tr>
+                                    <td>{{ $property->title }}</td>
+                                    <td>{{ $property->price }}</td>
+                                    <td>{{ $property->status }}</td>
+                                    <td>{{ $property->property_type }}</td>
+                                    <td>
+                                        <div style="text-align: center;">
 
-                                        <a href="{{ route('admin.property.show', $property->id) }}" class="btn btn-primary" id="exampleModal"><i class="fas fa-eye"></i></a>
+                                            <a href="{{ route('admin.property.show', $property->id) }}"
+                                                class="btn btn-primary" id="exampleModal"><i class="fas fa-eye"></i></a>
 
-                                        <a href="{{ route('admin.property.edit', $property->id) }}" class="btn btn-primary btn-action mr-1" data-original-title="Edit">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </a>
+                                            <a href="{{ route('admin.property.edit', $property->id) }}"
+                                                class="btn btn-primary btn-action mr-1" data-original-title="Edit">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
 
-                                        <form method="POST" action="{{ route('admin.property.destroy', $property->id) }}" style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
+                                            <form method="POST"
+                                                action="{{ route('admin.property.destroy', $property->id) }}"
+                                                style="display: inline;">
+                                                @csrf
+                                                @method('DELETE')
 
-                                            <button type='submit' class="btn btn-danger btn-action"><i class="fas fa-trash"></i></button>
-                                        </form>
+                                                <button type='submit' class="btn btn-danger btn-action"><i
+                                                        class="fas fa-trash"></i></button>
 
-                                    </div>
-                                </td>
-                            </tr>
+                                            </form>
+
+                                        </div>
+                                    </td>
+                                </tr>
                             @endforeach
                         @endif
                     </tbody>
