@@ -75,6 +75,11 @@
                     </tbody>
                 </table>
 
+                <!-- Simple pagination links -->
+                <div class="pagination" style="margin: 0 auto; justify-content: center; margin-top: 10px;">
+                    {{ $properties->links('pagination::simple-bootstrap-4') }}
+                </div>
+
             </div>
         </div>
 

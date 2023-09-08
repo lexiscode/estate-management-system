@@ -18,7 +18,8 @@ class PropertyController extends Controller
     public function index()
     {
         // Retrieve all properties with their related availabilities
-        $properties = Property::with('availability')->get();
+        //$properties = Property::with('availability')->get();
+        $properties = Property::with('availability')->simplePaginate(5);
 
         return view('admin.properties.index', compact('properties'));
     }
