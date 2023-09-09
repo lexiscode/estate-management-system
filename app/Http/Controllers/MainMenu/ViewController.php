@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\MainMenu;
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Agent;
 
 use Illuminate\Http\Request;
 
@@ -26,9 +27,9 @@ class ViewController extends Controller
     // Display the agents page.
     public function agents()
     {
-        //$agents = About::orderBy('created_at', 'asc')->simplePaginate(4);
-        return view('users.agents');
-        //return view('users.agents', compact('agents'));
+        $agents = Agent::orderBy('created_at', 'asc')->simplePaginate(4);
+
+        return view('users.agents', compact('agents'));
     }
 
     // Display the blog page.

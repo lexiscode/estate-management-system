@@ -64,7 +64,7 @@
                     </thead>
                     <tbody>
                         @if ($blogs->isEmpty())
-                            <p>No blogs found.</p>
+                            <p>No blog found.</p>
                         @else
                             @foreach ($blogs as $blog)
                                 <tr>

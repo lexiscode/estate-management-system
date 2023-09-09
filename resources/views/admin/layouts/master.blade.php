@@ -61,8 +61,12 @@
 
         <!-- About Us section -->
         @yield('about')
+
         <!-- Agents section -->
         @yield('agents')
+        @yield('create-agents')
+        @yield('show-agent-details')
+        @yield('update-agents')
 
       </div>
       <footer class="main-footer">
