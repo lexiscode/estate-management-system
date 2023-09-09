@@ -15,7 +15,7 @@
                     @if ($post_enquiries->isEmpty())
                         <p>No message found.</p>
                     @else
-                        @foreach ($post_enquiries_copy as $post_enquiry)
+                        @foreach ($post_enquiries as $post_enquiry)
                             <a href="{{ route('admin.post-enquiry.index') }}" class="dropdown-item dropdown-item-unread">
                                 <div class="dropdown-item-avatar">
                                     <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle">

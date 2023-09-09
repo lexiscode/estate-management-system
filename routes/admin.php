@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostEnquiryController;
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\AgentController;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -38,6 +40,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
     // This route is for the PostEnquireController
     Route::resource('post-enquiry', PostEnquiryController::class);
+
+    // This route is for the AboutUs Controller
+    Route::resource('about', AboutController::class);
+
+    // This route is for the PostEnquireController
+    Route::resource('agent', AgentController::class);
 
 });
 

@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\Availability;
 use Illuminate\Support\Facades\Validator;
-
+use App\Models\PostEnquiry;
 
 use Illuminate\Http\Request;
 
@@ -21,7 +21,9 @@ class PropertyController extends Controller
         //$properties = Property::with('availability')->get();
         $properties = Property::with('availability')->orderBy('created_at', 'desc')->simplePaginate(5);
 
-        return view('admin.properties.index', compact('properties'));
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.properties.index', compact('properties', 'post_enquiries'));
     }
 
 
@@ -105,7 +107,10 @@ class PropertyController extends Controller
     public function show(string $id)
     {
         $property = Property::with('availability')->findOrFail($id);
-        return view('admin.properties.show', compact('property'));
+
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.properties.show', compact('property', 'post_enquiries'));
     }
 
 
@@ -115,7 +120,10 @@ class PropertyController extends Controller
     public function edit(string $id)
     {
         $property = Property::with('availability')->findOrFail($id);
-        return view('admin.properties.update', compact('property'));
+
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.properties.update', compact('property', 'post_enquiries'));
     }
 
 

@@ -28,11 +28,11 @@
 
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
-                    <span>Forms</span></a>
+                    <span>Sub-Navigations</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="forms-advanced-form.html">Advanced Form</a></li>
-                    <li><a class="nav-link" href="forms-editor.html">Editor</a></li>
-                    <li><a class="nav-link" href="forms-validation.html">Validation</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.about.edit', ['about' => 1]) }}">About</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.agent.index') }}">Agents</a></li>
+
                 </ul>
             </li>
 

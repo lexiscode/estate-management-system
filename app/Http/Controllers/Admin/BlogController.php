@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Blog;
+use App\Models\PostEnquiry;
+
 
 use Illuminate\Http\Request;
 
@@ -17,7 +19,9 @@ class BlogController extends Controller
     {
         $blogs = Blog::orderBy('created_at', 'desc')->simplePaginate(5);
 
-        return view('admin.blogs.index', compact('blogs'));
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.blogs.index', compact('blogs', 'post_enquiries'));
     }
 
     /**
@@ -65,7 +69,9 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($id);
 
-        return view('admin.blogs.show', compact('blog'));
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.blogs.show', compact('blog', 'post_enquiries'));
     }
 
     /**
@@ -75,7 +81,9 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($id);
 
-        return view('admin.blogs.update', compact('blog'));
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.blogs.update', compact('blog', 'post_enquiries'));
     }
 
     /**
