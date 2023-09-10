@@ -48,7 +48,7 @@ class PropertyController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'property_details' => ['required', 'string'],
             'property_type' => ['required', 'string'],
-            'price' => ['required', 'string'],
+            'price' => ['required', 'numeric'],
             'location' => ['required', 'string'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:1024'],
             'agent_name' => ['required', 'string', 'max:255'],

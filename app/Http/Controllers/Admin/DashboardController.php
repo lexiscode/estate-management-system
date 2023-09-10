@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\PostEnquiry;
 
 use Illuminate\Http\Request;
 
@@ -12,6 +13,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard.index');
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.dashboard.index', compact('post_enquiries'));
     }
 }
+
+
+
+

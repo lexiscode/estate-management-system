@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <label for="property-details">Property Details</label>
-                            <textarea class="form-control" name="property_details" id="property-details"></textarea>
+                            <textarea class="summernote-simple" name="property_details" id="property-details"></textarea>
                         </div>
 
                         <div class="form-row">
@@ -76,7 +76,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputAgentName">Name of Agent:</label>
-                                <input type="text" name="agent_name" class="form-control" id="inputAgentName">
+                                <input type="text" name="agent_name" class="form-control" id="inputAgentName" placeholder="Input the name of agent..">
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="inputAgentNumber">Phone Number of Agent:</label>

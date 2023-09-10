@@ -40,16 +40,17 @@
                                 <div class="form-group col-md-5">
                                     <input type="file" class="form-control" name="image" id="uploadImage" required>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="content">Content</label>
-                            
-                            <div class="col-sm-12 col-md-7"> 
-                                <textarea class="form-control" name="content" id="content" spellcheck="false" data-ms-editor="true">{{ $blog->content }}</textarea>
+
+                            <div class="col-sm-12 col-md-7">
+                                
+                                <textarea class="summernote-simple" name="content" id="content">{{ $blog->content }}</textarea>
                             </div>
-                            
+
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
