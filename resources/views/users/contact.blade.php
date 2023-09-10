@@ -10,20 +10,36 @@
     </div>
     <!-- banner -->
 
+    <!-- Display successfully sent enquiry message if it exists -->
+    @if (session('enquiry-success'))
+
+        <div class="alert alert-custom alert-success alert-dismissible show" data-dismiss="alert">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span style="background-color: white">×</span>
+                </button>
+                {{ session('enquiry-success') }}
+            </div>
+        </div>
+        <br> <br>
+    @endif
 
     <div class="container">
         <div class="spacer">
             <div class="row contact">
                 <div class="col-lg-6 col-sm-6 ">
+                    <form method="POST" action="{{ route('admin.post-enquiry.store') }}">
+                        @csrf
+                        <input type="text" class="form-control" name="name" placeholder="Your full name" required>
+                        <input type="text" class="form-control" name="email" placeholder="Your email address" required>
+                        <input type="text" class="form-control" name="phone_no" placeholder="Your contact number" required>
 
-                    <input type="text" class="form-control" placeholder="Full Name">
-                    <input type="text" class="form-control" placeholder="Email Address">
-                    <input type="text" class="form-control" placeholder="Contact Number">
-                    <textarea rows="6" class="form-control" placeholder="Message"></textarea>
-                    <button type="submit" class="btn btn-success" name="Submit">Send Message</button>
+                        <textarea rows="6" class="form-control" name="message" placeholder="Your message to us..." required></textarea>
 
+                        <input type="hidden" class="form-control" name="contact_page" value="Yes" >
+                        <button type="submit" class="btn btn-success">Send Message</button>
 
-
+                    </form>
 
                 </div>
                 <div class="col-lg-6 col-sm-6 ">

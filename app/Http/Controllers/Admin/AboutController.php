@@ -15,44 +15,23 @@ class AboutController extends Controller
      */
     public function index()
     {
-        // users can't access admin route, there we used the users index() in ViewController
+        // users can't access admin route, therefore we used the users index() in ViewController
         // which is accessible to users
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
+     * 
+     * NB: Ensure there's a data in the first ID of the abouts table, run seeder.
      */
     public function edit(string $id)
     {
         $about = About::findOrFail($id);
 
-        $post_enquiries_copy = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
-        return view('admin.about-navigation.update', compact('about', 'post_enquiries_copy'));
+        return view('admin.about-navigation.update', compact('about', 'post_enquiries'));
     }
 
     /**

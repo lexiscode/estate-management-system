@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class PropertyDetailController extends Controller
@@ -11,4 +11,6 @@ class PropertyDetailController extends Controller
     {
         return view('users.property-detail');
     }
+
+   
 }

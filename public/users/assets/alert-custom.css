@@ -1,0 +1,20 @@
+/* Override Bootstrap styles for the alert */
+.alert-custom {
+    position: fixed;
+    z-index: 9999;
+    /* Additional styles as needed */
+}
+
+/* Override background color and text color */
+.alert-custom {
+    background-color: green;
+    color: white;
+    /* Additional styles as needed */
+}
+
+/* Override padding and margin */
+.alert-custom {
+    padding: 10px;
+    margin: 10px;
+    /* Additional styles as needed */
+}

@@ -26,7 +26,9 @@ class PostEnquiryController extends Controller
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'max:255'],
-            'phone_no' => ['required', 'string', 'max:14'],
+            'phone_no' => ['required', 'string', 'max:17'],
+            'property_title' => ['string', 'nullable'], // not required
+            'contact_page' => ['string', 'nullable'], // not required
             'message' => ['required', 'string'],
         ]);
 

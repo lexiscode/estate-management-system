@@ -40,9 +40,18 @@
                             </div>
                             <div class="collapse show" id="mycard-collapse" style="">
                                 <div class="card-body">
-                                    NB: Don't forget to add the title of product that's been enquired about.
+
                                     <p>Email Address: {{ $post_enquiry->email }}</p>
                                     <p>Phone Number: {{ $post_enquiry->phone_no }}</p>
+
+                                    @if($post_enquiry->property_title !== null)
+                                        <p>Property Title: {{ $post_enquiry->property_title }}</p>
+                                    @endif
+
+                                    @if($post_enquiry->contact_page !== null)
+                                        <p>From Contact Page?: {{ $post_enquiry->contact_page }}</p>
+                                    @endif
+
                                     <p>Message: {{ $post_enquiry->message }}</p>
                                     <br>
 

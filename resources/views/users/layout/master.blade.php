@@ -29,6 +29,9 @@
     <script type="text/javascript" src="{{ asset('users/assets/slitslider/js/jquery.slitslider.js') }}"></script>
     <!-- slitslider -->
 
+    <!-- My custom CSS-->
+    <link href="{{ asset('users/assets/alert-custom.css') }}" rel="stylesheet">
+
 </head>
 
 <body>

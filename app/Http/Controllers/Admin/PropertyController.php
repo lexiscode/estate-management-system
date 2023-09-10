@@ -111,6 +111,7 @@ class PropertyController extends Controller
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('admin.properties.show', compact('property', 'post_enquiries'));
+
     }
 
 

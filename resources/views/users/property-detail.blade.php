@@ -14,12 +14,11 @@
     <div class="container">
 
         <!-- Display successfully sent enquiry message if it exists -->
-        <!-- the alert is available there but not showing out in the webpage, but its there hidden-->
         @if (session('enquiry-success'))
-            <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert alert-custom alert-success alert-dismissible show" data-dismiss="alert">
                 <div class="alert-body">
                     <button class="close" data-dismiss="alert">
-                        <span>×</span>
+                        <span style="background-color: white">×</span>
                     </button>
                     {{ session('enquiry-success') }}
                 </div>
@@ -182,10 +181,11 @@
                                     <h6><span class="glyphicon glyphicon-envelope"></span> Post Enquiry</h6>
                                     <form role="form" method="POST" action="{{ route('admin.post-enquiry.store') }}">
                                         @csrf
-                                        <input type="text" class="form-control" name='name' placeholder="Full Name" />
-                                        <input type="text" class="form-control" name="email" placeholder="you@youremail.com" />
-                                        <input type="text" class="form-control" name="phone_no" placeholder="your phone number" />
-                                        <textarea rows="6" class="form-control" name="message" placeholder="What's on your mind?"></textarea>
+                                        <input type="text" class="form-control" name='name' placeholder="Your full name" required />
+                                        <input type="text" class="form-control" name='property_title' placeholder="Property title you're enquiring..." required />
+                                        <input type="text" class="form-control" name="email" placeholder="you@youremail.com" required />
+                                        <input type="text" class="form-control" name="phone_no" placeholder="your phone number" required />
+                                        <textarea rows="6" class="form-control" name="message" placeholder="What's on your mind?" required></textarea>
 
                                         <button type="submit" class="btn btn-primary">Send Message</button>
 
