@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MainMenu;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Agent;
+use App\Models\Blog;
 
 use Illuminate\Http\Request;
 
@@ -35,7 +36,9 @@ class ViewController extends Controller
     // Display the blog page.
     public function blog()
     {
-        return view('users.blog');
+        $blogs = Blog::orderBy('created_at', 'asc')->simplePaginate(5);
+        
+        return view('users.blog', compact('blogs'));
     }
 
     // Display the contact page.

@@ -18,8 +18,9 @@ Route::get('contact', [ViewController::class, 'contact'])->name('view.contact');
 // This route is for the header menu
 Route::get('buysalerent', [BuySaleRentController::class, 'index'])->name('view.buysalerent');
 
-Route::get('property-detail', [PropertyDetailController::class, 'index'])->name('view.property-detail');
-Route::get('blog-detail', [BlogDetailController::class, 'index'])->name('view.blog-detail');
+Route::get('property-detail/{property}', [PropertyDetailController::class, 'index'])->name('view.property-detail');
+
+Route::get('blog-detail/{blog}', [BlogDetailController::class, 'show'])->name('view.blog-detail');
 
 Route::post('newsletter', [NewsletterController::class, 'store'])->name('store.newsletter');
 

@@ -1,15 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Blog;
 
 use Illuminate\Http\Request;
 
 class BlogDetailController extends Controller
 {
-    // Display a single blog detail page.
-    public function index()
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        return view('users.blog-detail');
+        $blog = Blog::findOrFail($id);
+
+        $blogs = Blog::all();
+
+        return view('users.blog-detail', compact('blog', 'blogs'));
     }
+    
 }
 

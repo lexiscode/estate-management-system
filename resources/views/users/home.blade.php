@@ -212,11 +212,12 @@
     <div class="properties-listing spacer"> <a href="{{ route('view.buysalerent') }}" class="pull-right viewall">View All Listing</a>
         <h2>Featured Properties</h2>
         <div id="owl-example" class="owl-carousel">
+            @foreach ($properties as $property)
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/1.jpg") }} class="img-responsive" alt="properties" />
                     <div class="status sold">Sold</div>
                     </div>
-                <h4><a href="{{ route('view.property-detail') }}">Royal Inn</a></h4>
+                <h4><a href="{{ route('view.property-detail', $property->id) }}">Royal Inn</a></h4>
                 <p class="price">Price: $234,900</p>
                 <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom"
                         data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom"
@@ -225,6 +226,14 @@
                         data-placement="bottom" data-original-title="Kitchen">1</span> </div>
                 <a class="btn btn-primary" href="{{ route('view.property-detail') }}">View Details</a>
             </div>
+            @endforeach
+
+
+
+
+
+
+
             <div class="properties">
                 <div class="image-holder"><img src={{ asset("users/images/properties/2.jpg") }} class="img-responsive"
                         alt="properties" />
