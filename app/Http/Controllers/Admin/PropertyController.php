@@ -32,7 +32,9 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('admin.properties.create');
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.properties.create', compact('post_enquiries'));
     }
 
 
@@ -50,10 +52,9 @@ class PropertyController extends Controller
             'location' => ['required', 'string'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:1024'],
             'agent_name' => ['required', 'string', 'max:255'],
-            'agent_no' => ['required', 'string', 'max:14'],
+            'agent_no' => ['required', 'string', 'max:18'],
             'status' => ['required', 'string'],
         ]);
-
 
         // Handle image upload
         if ($request->hasFile('image')) {

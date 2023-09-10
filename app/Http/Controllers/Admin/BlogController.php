@@ -28,7 +28,9 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.blogs.create', compact('post_enquiries'));
     }
 
     /**

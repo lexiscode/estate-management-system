@@ -11,12 +11,6 @@ use Illuminate\Http\Request;
 class ViewController extends Controller
 {
 
-    // Display the home page.
-    public function __invoke()
-    {
-        return view('users.home');
-    }
-
     // Display the about page.
     public function about()
     {
@@ -37,7 +31,7 @@ class ViewController extends Controller
     public function blog()
     {
         $blogs = Blog::orderBy('created_at', 'asc')->simplePaginate(5);
-        
+
         return view('users.blog', compact('blogs'));
     }
 
