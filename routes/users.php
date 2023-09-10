@@ -25,3 +25,5 @@ Route::get('blog-detail/{blog}', [BlogDetailController::class, 'show'])->name('v
 
 Route::post('newsletter', [NewsletterController::class, 'store'])->name('store.newsletter');
 
+
+

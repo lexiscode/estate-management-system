@@ -37,7 +37,7 @@
                                     class="img-responsive img-circle" alt="properties" /></div>
                             <div class="col-lg-8 col-sm-7">
                                 <h5><a href="{{ route('view.home') }}">Integer sed porta quam</a></h5>
-                                <p class="price">$300,000</p>
+                                <p class="price">₦300,000</p>
                             </div>
                         </div>
                         <div class="row">
@@ -45,7 +45,7 @@
                                     class="img-responsive img-circle" alt="properties" /></div>
                             <div class="col-lg-8 col-sm-7">
                                 <h5><a href="{{ route('view.home') }}">Integer sed porta quam</a></h5>
-                                <p class="price">$300,000</p>
+                                <p class="price">₦300,000</p>
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                                     class="img-responsive img-circle" alt="properties" /></div>
                             <div class="col-lg-8 col-sm-7">
                                 <h5><a href="{{ route('view.home') }}">Integer sed porta quam</a></h5>
-                                <p class="price">$300,000</p>
+                                <p class="price">₦300,000</p>
                             </div>
                         </div>
 
@@ -62,8 +62,8 @@
                             <div class="col-lg-4 col-sm-5"><img src={{ asset('users/images/properties/2.jpg') }}
                                     class="img-responsive img-circle" alt="properties" /></div>
                             <div class="col-lg-8 col-sm-7">
-                                <h5><a href="{{ route('view.property-detail') }}">Integer sed porta quam</a></h5>
-                                <p class="price">$300,000</p>
+                                <h5><a href="{{ route('view.home') }}">Integer sed porta quam</a></h5>
+                                <p class="price">₦300,000</p>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
 
                 <div class="col-lg-9 col-sm-8 ">
 
-                    <h2>2 room and 1 kitchen apartment</h2>
+                    <h2>{{ $property->title }}</h2>
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="property-images">
@@ -134,12 +134,7 @@
 
                             <div class="spacer">
                                 <h4><span class="glyphicon glyphicon-th-list"></span> Properties Detail</h4>
-                                <p>Efficiently unleash cross-media information without cross-media value. Quickly maximize
-                                    timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar
-                                    solutions without functional solutions.</p>
-                                <p>Completely synergize resource sucking relationships via premier niche markets.
-                                    Professionally cultivate one-to-one customer service with robust ideas. Dynamically
-                                    innovate resource-leveling customer service for state of the art customer service</p>
+                                <p> {{ $property->property_details }} </p>
 
                             </div>
                             <div>
@@ -154,13 +149,14 @@
                         <div class="col-lg-4">
                             <div class="col-lg-12  col-sm-6">
                                 <div class="property-info">
-                                    <p class="price">$ 200,000,000</p>
-                                    <p class="area"><span class="glyphicon glyphicon-map-marker"></span> 344 Villa,
-                                        Syndey, Australia</p>
+                                    <p class="price">₦ {{ $property->price }}</p>
+                                    <p class="area"><span class="glyphicon glyphicon-map-marker"></span>
+                                        {{ $property->location }}
+                                    </p>
 
                                     <div class="profile">
                                         <span class="glyphicon glyphicon-user"></span> Agent Details
-                                        <p>John Parker<br>009 229 2929</p>
+                                        <p>{{ $property->agent_name }}<br>{{ $property->agent_no }}</p>
                                     </div>
                                 </div>
 
