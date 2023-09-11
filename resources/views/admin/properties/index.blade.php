@@ -49,6 +49,17 @@
                         </div>
                     </div>
                 @endif
+                <!-- Display property deletion success message if it exists -->
+                @if (session('delete-success'))
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                            </button>
+                            {{ session('delete-success') }}
+                        </div>
+                    </div>
+                @endif
 
                 <!-- This is a simple table -->
                 <table class="table">

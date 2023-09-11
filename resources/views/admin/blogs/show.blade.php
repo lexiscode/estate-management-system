@@ -24,7 +24,7 @@
             <div class="card-body">
 
                 <h2 style="color: black;">{{ $blog->title }}</h2>
-               
+
                 <img src="{{ asset('uploads/blogs/' . $blog->image) }}" alt="Blog Image">
 
                 <p style="color: black;">{{ $blog->content }}</p>

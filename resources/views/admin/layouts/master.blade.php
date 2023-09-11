@@ -63,10 +63,16 @@
         @yield('about')
 
         <!-- Agents section -->
-        @yield('agents')
+        @yield('index-agents')
         @yield('create-agents')
         @yield('show-agent-details')
         @yield('update-agents')
+
+         <!-- Remittance section -->
+         @yield('index-remittances')
+         @yield('create-remittances')
+         @yield('show-remittances')
+         @yield('update-remittances')
 
       </div>
       <footer class="main-footer">

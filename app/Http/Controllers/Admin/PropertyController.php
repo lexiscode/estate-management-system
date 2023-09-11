@@ -195,7 +195,7 @@ class PropertyController extends Controller
         // Delete the property and its related availability (if any)
         $property->delete();
 
-        return redirect()->route('admin.property.index')->with('success', 'Property deleted successfully');
+        return redirect()->back()->with('delete-success', 'Property deleted successfully');
     }
 
 }

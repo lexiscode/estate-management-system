@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('agents')
+@section('index-agents')
     <section class="section">
 
         <div class="section-header">

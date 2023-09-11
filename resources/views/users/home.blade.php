@@ -1,6 +1,7 @@
 @extends('users.layout.master')
 
 @section('home')
+
     <div class="">
 
         <div id="slider" class="sl-slider-wrapper">
@@ -94,9 +95,8 @@
             </nav>
 
         </div><!-- /slider-wrapper -->
+
     </div>
-
-
 
     <div class="banner-search">
         <div class="container">
@@ -220,7 +220,7 @@
                             <img src="{{ asset('uploads/properties/' . $property->image) }}" class="img-responsive" alt="property-image" />
                             <div class="status sold">{{ $property->status }}</div>
                         </div>
-                        <h4><a href="{{ route('view.property-detail', $property->id) }}">{{ $property->property_type }}</a></h4>
+                        <h4><a href="{{ route('view.property-detail', $property->id) }}">{{ $property->title }}</a></h4>
                         <p class="price">Price: ₦{{ $property->price }}</p>
                         <div class="listing-detail">
                             <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span>

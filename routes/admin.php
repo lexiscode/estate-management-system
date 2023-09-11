@@ -1,9 +1,7 @@
 <?php
 
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\AdminPasswordResetController;
 
 use App\Http\Controllers\Admin\PropertyController;
@@ -12,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostEnquiryController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AgentController;
+use App\Http\Controllers\Admin\RemittanceController;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -46,6 +45,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
     // This route is for the PostEnquireController
     Route::resource('agent', AgentController::class);
+
+    // This route is for the RemittanceController
+    Route::resource('remit', RemittanceController::class);
 
 });
 
