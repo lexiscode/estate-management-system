@@ -21,7 +21,11 @@
                     </div>
                 </form>
             </div>
+
             <div class="card-body">
+
+                <p style="text-transform: uppercase"><b>Name Of Tenant:</b> {{ $selectedTenantNames }}</p>
+                <p style="text-transform: uppercase"><b>Apartment:</b> {{ $selectedApartments }}</p>
 
                 <!-- This is a simple table -->
                 <table class="table">
@@ -57,9 +61,23 @@
                     </tbody>
                 </table>
 
+                <!-- Simple pagination links -->
+                <div class="pagination" style="margin: 0 auto; justify-content: center; margin-top: 10px;">
+                    {{ $filteredRecords->links('pagination::simple-bootstrap-4') }}
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Export</button>
+                </div>
+
             </div>
+
+
+
         </div>
 
     </section>
 
 @endsection
+
+

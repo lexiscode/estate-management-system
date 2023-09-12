@@ -61,11 +61,11 @@ class TenantRecordController extends Controller
         }
 
         // Get the filtered records
-        $filteredRecords = $query->get();
+        $filteredRecords = $query->orderBy('created_at', 'asc')->simplePaginate(5);
 
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
-        return view('admin.tenant-records.create', compact('filteredRecords', 'post_enquiries'));
+        return view('admin.tenant-records.create', compact('filteredRecords', 'post_enquiries', 'selectedTenantNames', 'selectedApartments'));
     }
 }
 
@@ -85,5 +85,7 @@ class TenantRecordController extends Controller
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('admin.tenant-records.create', compact('filteredRecords', 'post_enquiries'));
-    }*/
+    }
+
+*/
 
