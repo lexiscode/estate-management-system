@@ -76,8 +76,6 @@
                         <option value="Overdue">Overdue</option>
                         <option value="Cancelled">Cancelled</option>
                     </select>
-
-
                 </div>
 
                 <table class="table">

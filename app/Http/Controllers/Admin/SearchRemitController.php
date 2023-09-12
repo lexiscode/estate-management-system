@@ -16,7 +16,7 @@ class SearchRemitController extends Controller
         $query = $request->input('query');
 
         $remits_search = Remittance::where('tenant_name', 'like', "%$query%")
-            ->orWhere('status', 'like', "%$query%")
+            ->orWhere('apartment', 'like', "%$query%")
             ->get();
 
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);

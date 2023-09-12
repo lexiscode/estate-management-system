@@ -27,6 +27,7 @@
                     <span>Manage Rent Records</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.remit.index') }}"><i class="far fa-square"></i> <span>Remittance</span></a></li>
+                    <li><a class="nav-link" href="{{ route('admin.statement.index') }}"><i class="far fa-square"></i> <span>Statements</span></a></li>
                 </ul>
             </li>
 

@@ -43,6 +43,7 @@ class RemittanceController extends Controller
             'tenant_name' => ['required', 'string', 'max:50'],
             'apartment' => ['required', 'string'],
             'status' => ['required', 'string'],
+            'rent_fee' => ['required', 'numeric'],
             'amount_paid' => ['required', 'numeric'],
             'payment_date' => ['required', 'date'],
             'debt_amount' => ['nullable', 'numeric'],

@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('tenant_name');
             $table->string('apartment');
             $table->string('status');
-            $table->decimal('amount_paid', 10, 2);
+            $table->unsignedBigInteger('rent_fee');
+            $table->unsignedBigInteger('amount_paid');
             $table->date('payment_date');
-            $table->decimal('debt_amount', 10, 2)->nullable(); // If debt is nullable
+            $table->unsignedBigInteger('debt_amount')->nullable(); // If debt is nullable
             $table->date('debt_due_date')->nullable(); // If debt due date is nullable
             $table->date('rent_due_date');
             $table->string('payment_method');

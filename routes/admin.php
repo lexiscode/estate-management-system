@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\RemittanceController;
 use App\Http\Controllers\Admin\SearchRemitController;
+use App\Http\Controllers\Admin\TenantRecordController;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -52,6 +53,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 
     // This route is for the search functionality in the Remittance admin page
     Route::get('search', [SearchRemitController::class, 'search'])->name('remit.search');
+
+    // This route is for the TenantRecordController
+    Route::resource('statement', TenantRecordController::class);
 
 });
 

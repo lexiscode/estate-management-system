@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/summernote/summernote-bs4.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/jquery-selectric/selectric.css') }}">
+  <link rel="stylesheet" href="assets/modules/select2/dist/css/select2.min.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
@@ -68,12 +69,17 @@
         @yield('show-agent-details')
         @yield('update-agents')
 
-         <!-- Remittance section -->
-         @yield('index-remittances')
-         @yield('create-remittances')
-         @yield('show-remittances')
-         @yield('update-remittances')
-         @yield('search-remittances')
+        <!-- Remittance section -->
+        @yield('index-remittances')
+        @yield('create-remittances')
+        @yield('show-remittances')
+        @yield('update-remittances')
+        @yield('search-remittances')
+
+        <!-- Tenant section-->
+        @yield('index-tenant-records')
+        @yield('create-tenant-records')
+
 
       </div>
       <footer class="main-footer">
@@ -103,15 +109,18 @@
   <script src="{{ asset('admin/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
   <script src="{{ asset('admin/assets/modules/summernote/summernote-bs4.js') }}"></script>
   <script src="{{ asset('admin/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+  <script src="assets/modules/select2/dist/js/select2.full.min.js"></script>
   <script src="{{ asset('admin/assets/modules/jquery-selectric/jquery.selectric.min.js') }}"></script>
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('admin/assets/js/page/index-0.js') }}"></script>
+  <script src="assets/js/page/forms-advanced-forms.js"></script>
 
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
   <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
 
+  <!-- Filter search JS File -->
   <script src="{{ asset("admin/assets/js/filter.js") }}"></script>
 
 
