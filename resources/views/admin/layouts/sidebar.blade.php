@@ -22,7 +22,13 @@
 
 
             <li class="menu-header">Manage Rent Records</li>
-            <li><a class="nav-link" href="{{ route('admin.remit.index') }}"><i class="far fa-square"></i> <span>Remittance</span></a></li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
+                    <span>Manage Rent Records</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.remit.index') }}"><i class="far fa-square"></i> <span>Remittance</span></a></li>
+                </ul>
+            </li>
 
 
             <li class="menu-header">Manage Property</li>

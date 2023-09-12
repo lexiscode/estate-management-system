@@ -10,9 +10,11 @@
         <div class="card card-warning">
             <div class="card-header">
                 <h4>Manage All Tenants Dealings With You!</h4>
-                <form class="card-header-form">
+
+                <form class="card-header-form" action="{{ route('admin.remit.search') }}" method="GET">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search">
+
+                        <input type="text" name="query" class="form-control" placeholder="Search ">
                         <div class="input-group-btn">
                             <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
                         </div>
@@ -23,8 +25,8 @@
                         </div>
 
                     </div>
-
                 </form>
+
             </div>
             <div class="card-body">
 
@@ -64,6 +66,20 @@
                     </div>
                 @endif
 
+                <!-- The filter field -->
+                <div class="mb-3">
+                    <label for="statusFilter" class="form-label">Filter by Status:</label>
+                    <select class="form-control" id="statusFilter">
+                        <option value="All">All</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Partially Paid">Partially Paid</option>
+                        <option value="Overdue">Overdue</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+
+
+                </div>
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -85,9 +101,16 @@
 
                                 <td><a>{{ $remittance->tenant_name }}</a></td>
                                 <td class="font-weight-600">{{ $remittance->apartment }}</td>
-                                <td>
-                                    <div class="badge badge-warning">{{ $remittance->status }}</div>
-                                    {{-- <divclass="badgebadge-success">$remittance->status</div> --}}
+                                <td class="payment-status">
+                                    @if ($remittance->status === 'Paid')
+                                        <div class="badge badge-success">{{ $remittance->status }}</div>
+                                    @elseif ($remittance->status === 'Partially Paid')
+                                        <div class="badge badge-info">{{ $remittance->status }}</div>
+                                    @elseif ($remittance->status === 'Overdue')
+                                        <div class="badge badge-warning">{{ $remittance->status }}</div>
+                                    @elseif ($remittance->status === 'Cancelled')
+                                        <div class="badge badge-danger">{{ $remittance->status }}</div>
+                                    @endif
                                 </td>
                                 <td>{{ $remittance->rent_due_date }}</td>
                                 <td>
@@ -120,8 +143,14 @@
                     </tbody>
                 </table>
 
+                <!-- Simple pagination links -->
+                <div class="pagination" style="margin: 0 auto; justify-content: center; margin-top: 10px;">
+                    {{ $remittances->links('pagination::simple-bootstrap-4') }}
+                </div>
+
             </div>
         </div>
 
     </section>
+
 @endsection

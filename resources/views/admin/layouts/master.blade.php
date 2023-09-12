@@ -73,6 +73,7 @@
          @yield('create-remittances')
          @yield('show-remittances')
          @yield('update-remittances')
+         @yield('search-remittances')
 
       </div>
       <footer class="main-footer">
@@ -110,6 +111,9 @@
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
   <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
+
+  <script src="{{ asset("admin/assets/js/filter.js") }}"></script>
+
 
 </body>
 </html>
