@@ -81,7 +81,7 @@
                             @foreach ($properties as $property)
                                 <tr>
                                     <td>{{ $property->title }}</td>
-                                    <td>{{ $property->price }}</td>
+                                    <td>{{ number_format($property->price, 2) }}</td>
                                     <td>{{ $property->status }}</td>
                                     <td>{{ $property->property_type }}</td>
                                     <td>

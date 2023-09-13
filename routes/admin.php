@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('statement', [TenantRecordController::class, 'index'])->name('statement.index');
     Route::get('statement/create', [TenantRecordController::class, 'create'])->name('statement.create');
     Route::get('statement/generate-pdf', [TenantRecordController::class, 'generatePDF'])->name('statement.generate-pdf');
+    Route::get('statement/generate-excel', [TenantRecordController::class, 'generateExcel'])->name('statement.generate-excel');
 
 });
 

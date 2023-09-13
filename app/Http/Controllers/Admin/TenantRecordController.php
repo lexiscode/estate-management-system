@@ -7,6 +7,8 @@ use App\Models\Remittance;
 use App\Models\PostEnquiry;
 
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\TenantRecordsExport;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Carbon;
 
@@ -109,11 +111,59 @@ class TenantRecordController extends Controller
 
         $filteredRecords = $query->orderBy('created_at', 'asc')->get();
 
+        // Calculate the totals for Amount Paid and Debt Amount
+        $totalAmountPaid = $filteredRecords->sum('amount_paid');
+        $totalDebtAmount = $filteredRecords->sum('debt_amount');
+        $rentFee = $filteredRecords->first()->rent_fee;
+
         // Generate the PDF using the PDF facade
-        $pdf = PDF::loadView('admin.tenant-records.pdf_view', compact('filteredRecords', 'selectedTenantNames', 'selectedApartments'));
+        $pdf = PDF::loadView('admin.tenant-records.pdf_view', compact('filteredRecords', 'selectedTenantNames',
+        'selectedApartments', 'totalAmountPaid', 'totalDebtAmount', 'rentFee'));
 
         // Download the PDF file with a specific filename
-        return $pdf->download('tenant_records.pdf');
+        return $pdf->download("$selectedTenantNames-RentStatements.pdf");
+    }
+
+    /**
+     * Generate Excel file
+     */
+    public function generateExcel(Request $request)
+    {
+        // Retrieve the selected tenant names and apartments
+        $selectedTenantNames = $request->input('name_of_tenant');
+        $selectedApartments = $request->input('name_of_apartment');
+
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        $query = Remittance::query();
+
+        // Filter records based on selected tenant names and apartments
+        if (!empty($selectedTenantNames)) {
+            if (is_array($selectedTenantNames)) {
+                $query->whereIn('tenant_name', $selectedTenantNames);
+            } else {
+                $query->where('tenant_name', $selectedTenantNames);
+            }
+        }
+
+        if (!empty($selectedApartments)) {
+            if (is_array($selectedApartments)) {
+                $query->whereIn('apartment', $selectedApartments);
+            } else {
+                $query->where('apartment', $selectedApartments);
+            }
+        }
+
+        // Filter records based on the date range
+        if (!empty($startDate) && !empty($endDate)) {
+            $query->whereBetween('rent_due_date', [$startDate, $endDate]);
+        }
+
+        $filteredRecords = $query->orderBy('created_at', 'asc')->get();
+
+        // Generate and download the Excel file
+        return Excel::download(new TenantRecordsExport($filteredRecords), 'tenant_records.xlsx');
     }
 
 }

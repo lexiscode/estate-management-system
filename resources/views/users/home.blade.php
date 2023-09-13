@@ -221,7 +221,7 @@
                             <div class="status sold">{{ $property->status }}</div>
                         </div>
                         <h4><a href="{{ route('view.property-detail', $property->id) }}">{{ $property->title }}</a></h4>
-                        <p class="price">Price: ₦{{ $property->price }}</p>
+                        <p class="price">Price: ₦{{ number_format($property->price, 2) }}</p>
                         <div class="listing-detail">
                             <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span>
                             <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span>

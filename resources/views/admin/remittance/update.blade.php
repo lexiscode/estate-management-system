@@ -75,9 +75,9 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="debt_due_date">Debt Due-Date (Optional):</label>
-                            <input type="date" name="debt_due_date" class="form-control" id="debt_due_date" value="{{ $remittance->rent_due_date }}" required>
+                            <input type="date" name="debt_due_date" class="form-control" id="debt_due_date" value="{{ $remittance->rent_due_date }}">
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="rent_due_date">Rent Due-Date:</label>
                             <input type="date" name="rent_due_date" class="form-control" id="rent_due_date" value="{{ $remittance->rent_due_date }}" required>
                         </div>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenant Records PDF</title>
     <style>
-        /* Define your PDF styling here */
         body {
             font-family: Arial, sans-serif;
         }
@@ -36,7 +35,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>Tenant Records</h1>
+        <h1>Tenant Account Statement</h1>
     </div>
 
     <div class="content">
@@ -48,9 +47,9 @@
                 <tr>
                     <th>#ID</th>
                     <th>Status</th>
-                    <th>Amount Paid</th>
+                    <th>Amount Paid (&#8358;)</th>
                     <th>Payment Date</th>
-                    <th>Debt Amount</th>
+                    <th>Debt Amount(&#8358;)</th>
                     <th>Debt Due-Date</th>
                     <th>Rent Due-Date</th>
                     <th>Payment Method</th>
@@ -66,9 +65,9 @@
                         <tr>
                             <td>{{ $record->id }}</td>
                             <td>{{ $record->status }}</td>
-                            <td>{{ $record->amount_paid }}</td>
+                            <td>{{ number_format($record->amount_paid, 2) }}</td>
                             <td>{{ $record->payment_date }}</td>
-                            <td>{{ $record->debt_amount }}</td>
+                            <td>{{ number_format($record->debt_amount, 2) }}</td>
                             <td>{{ $record->debt_due_date }}</td>
                             <td>{{ $record->rent_due_date }}</td>
                             <td>{{ $record->payment_method }}</td>
@@ -80,6 +79,14 @@
     </div>
 
     <div class="footer">
+        <table>
+            <tr>
+                <td colspan="2"><strong>Totals:</strong></td>
+                <td>Rent Fee: {{ number_format($rentFee, 2) }}</td>
+                <td>Amount Paid: {{ number_format($totalAmountPaid, 2) }}</td>
+                <td>Debt Amount: {{ number_format($totalDebtAmount, 2) }}</td>
+            </tr>
+        </table>
         <p>Generated on: {{ now()->format('Y-m-d H:i:s') }}</p>
     </div>
 </body>

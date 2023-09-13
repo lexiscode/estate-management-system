@@ -29,7 +29,7 @@
                 <img src="{{ asset('uploads/properties/' . $property->image) }}" alt="Property Image">
 
                 <p style="color: black;"><b>Property Type:</b> {{ $property->property_type }}</p>
-                <p style="color: black;"><b>Price:</b> {{ $property->price }}</p>
+                <p style="color: black;"><b>Price:</b> {{ {{ number_format($property->price, 2) }} }}</p>
                 <p style="color: black;"><b>Location:</b> {{ $property->location }}</p>
                 <p style="color: black;"><b>Property Details:</b> {{ $property->property_details }}</p>
                 <p style="color: black;"><b>Agent Name:</b> {{ $property->agent_name }}</p>

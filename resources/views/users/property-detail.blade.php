@@ -149,7 +149,7 @@
                         <div class="col-lg-4">
                             <div class="col-lg-12  col-sm-6">
                                 <div class="property-info">
-                                    <p class="price">₦ {{ $property->price }}</p>
+                                    <p class="price">₦ {{ number_format($property->price, 2) }}</p>
                                     <p class="area"><span class="glyphicon glyphicon-map-marker"></span>
                                         {{ $property->location }}
                                     </p>
