@@ -66,13 +66,14 @@
                     {{ $filteredRecords->links('pagination::simple-bootstrap-4') }}
                 </div>
 
+
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Export</button>
+                    {{-- <button type="submit" class="btn btn-primary">Export</button> --}}
+                    <a href="{{ route('admin.statement.generate-pdf', ['name_of_tenant' => $selectedTenantNames, 'name_of_apartment' => $selectedApartments]) }}" class="btn btn-success">Download PDF</a>
+
                 </div>
 
             </div>
-
-
 
         </div>
 

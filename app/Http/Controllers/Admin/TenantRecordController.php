@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Remittance;
 use App\Models\PostEnquiry;
+
+use PDF;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Carbon;
 
@@ -19,6 +21,7 @@ class TenantRecordController extends Controller
     {
         $all_tenant = Remittance::distinct('tenant_name')->pluck('tenant_name');
         $all_apartment = Remittance::distinct('apartment')->pluck('apartment');
+
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('admin.tenant-records.index', compact('post_enquiries', 'all_tenant', 'all_apartment'));
@@ -67,6 +70,52 @@ class TenantRecordController extends Controller
 
         return view('admin.tenant-records.create', compact('filteredRecords', 'post_enquiries', 'selectedTenantNames', 'selectedApartments'));
     }
+
+    /**
+     * Generates PDF
+     */
+    public function generatePDF(Request $request)
+    {
+        // Retrieve the selected tenant names and apartments
+        $selectedTenantNames = $request->input('name_of_tenant');
+        $selectedApartments = $request->input('name_of_apartment');
+
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        $query = Remittance::query();
+
+        // Filter records based on selected tenant names and apartments
+        if (!empty($selectedTenantNames)) {
+            if (is_array($selectedTenantNames)) {
+                $query->whereIn('tenant_name', $selectedTenantNames);
+            } else {
+                $query->where('tenant_name', $selectedTenantNames);
+            }
+        }
+
+        if (!empty($selectedApartments)) {
+            if (is_array($selectedApartments)) {
+                $query->whereIn('apartment', $selectedApartments);
+            } else {
+                $query->where('apartment', $selectedApartments);
+            }
+        }
+
+        // Filter records based on the date range
+        if (!empty($startDate) && !empty($endDate)) {
+            $query->whereBetween('rent_due_date', [$startDate, $endDate]);
+        }
+
+        $filteredRecords = $query->orderBy('created_at', 'asc')->get();
+
+        // Generate the PDF using the PDF facade
+        $pdf = PDF::loadView('admin.tenant-records.pdf_view', compact('filteredRecords', 'selectedTenantNames', 'selectedApartments'));
+
+        // Download the PDF file with a specific filename
+        return $pdf->download('tenant_records.pdf');
+    }
+
 }
 
 /*
