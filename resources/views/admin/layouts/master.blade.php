@@ -50,6 +50,7 @@
         @yield('create-properties')
         @yield('show-property-details')
         @yield('update-properties')
+        @yield('search-properties')
 
         <!-- Blogs section -->
         @yield('index-blogs')

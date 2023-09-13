@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('index-properties')
+@section('search-properties')
     <section class="section">
 
         <div class="section-header">
@@ -10,9 +10,9 @@
         <div class="card card-warning">
             <div class="card-header">
                 <h4>Manage Your Properties Here!</h4>
-                <form class="card-header-form">
+                <form class="card-header-form" action="{{ route('admin.property.search') }}" method="GET">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search">
+                        <input type="text" name="query" class="form-control" placeholder="Search">
                         <div class="input-group-btn">
                             <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
                         </div>
@@ -123,4 +123,5 @@
         </div>
 
     </section>
+
 @endsection
