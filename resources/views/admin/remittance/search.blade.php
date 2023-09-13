@@ -64,7 +64,15 @@
                                     <td><a>{{ $remit->tenant_name }}</a></td>
                                     <td class="font-weight-600">{{ $remit->apartment }}</td>
                                     <td>
-                                        <div class="badge badge-warning">{{ $remit->status }}</div>
+                                        @if ($remit->status === 'Paid')
+                                            <div class="badge badge-success">{{ $remit->status }}</div>
+                                        @elseif ($remit->status === 'Partially Paid')
+                                            <div class="badge badge-info">{{ $remit->status }}</div>
+                                        @elseif ($remit->status === 'Overdue')
+                                            <div class="badge badge-warning">{{ $remit->status }}</div>
+                                        @elseif ($remit->status === 'Cancelled')
+                                            <div class="badge badge-danger">{{ $remit->status }}</div>
+                                        @endif
                                     </td>
                                     <td>{{ $remit->rent_due_date }}</td>
                                     <td>

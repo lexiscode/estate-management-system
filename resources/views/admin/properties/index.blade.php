@@ -82,7 +82,16 @@
                                 <tr>
                                     <td>{{ $property->title }}</td>
                                     <td>{{ number_format($property->price, 2) }}</td>
-                                    <td>{{ $property->status }}</td>
+                                    <td>
+                                        @if ($property->status === 'New')
+                                            <div class="badge badge-success">{{ $property->status }}</div>
+                                        @elseif ($property->status === 'Rent')
+                                            <div class="badge badge-info">{{ $property->status }}</div>
+                                        @elseif ($property->status === 'Sold')
+                                            <div class="badge badge-danger">{{ $property->status }}</div>
+                                        @endif
+
+                                    </td>
                                     <td>{{ $property->property_type }}</td>
                                     <td>
                                         <div style="text-align: center;">

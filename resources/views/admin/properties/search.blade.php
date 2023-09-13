@@ -52,7 +52,7 @@
                                         Note: Ensure that there are no unnecessary space in-between the data name you are searching
                                         for, if still yes, then sorry your search request isn't in available in your database.
                                     </p>
-                                    <a href="{{ route('admin.remit.index') }}" class="btn btn-primary mt-4">Go Back</a>
+                                    <a href="{{ route('admin.property.index') }}" class="btn btn-primary mt-4">Go Back</a>
                                 </div>
                             </div>
                         @else
@@ -60,7 +60,15 @@
                             <tr>
                                 <td>{{ $property->title }}</td>
                                 <td>{{ number_format($property->price, 2) }}</td>
-                                <td>{{ $property->status }}</td>
+                                <td>
+                                    @if ($property->status === 'New')
+                                        <div class="badge badge-success">{{ $property->status }}</div>
+                                    @elseif ($property->status === 'Rent')
+                                        <div class="badge badge-info">{{ $property->status }}</div>
+                                    @elseif ($property->status === 'Sold')
+                                        <div class="badge badge-danger">{{ $property->status }}</div>
+                                    @endif
+                                </td>
                                 <td>{{ $property->property_type }}</td>
                                 <td>
                                     <div style="text-align: center;">

@@ -53,9 +53,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::resource('remit', RemittanceController::class);
 
     // This route is for the search functionality in the Remittance admin page
-    Route::get('search', [SearchRemitController::class, 'search'])->name('remit.search');
+    Route::get('search-remit', [SearchRemitController::class, 'search'])->name('remit.search');
     // This route is for the search functionality in the Properties admin page
-    Route::get('search', [SearchPropertyController::class, 'search'])->name('property.search');
+    Route::get('search-property', [SearchPropertyController::class, 'search'])->name('property.search');
 
     // Thess routes are for the TenantRecordController
     Route::get('statement', [TenantRecordController::class, 'index'])->name('statement.index');
