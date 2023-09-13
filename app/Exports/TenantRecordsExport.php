@@ -1,12 +1,15 @@
 <?php
-
 namespace App\Exports;
 
 use App\Models\Remittance;
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\FromView;
+use Illuminate\Contracts\View\View;
 
-class TenantRecordsExport implements FromCollection, WithHeadings
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+
+
+class TenantRecordsExport implements FromView, withStyles
 {
     protected $filteredRecords;
 
@@ -15,31 +18,29 @@ class TenantRecordsExport implements FromCollection, WithHeadings
         $this->filteredRecords = $filteredRecords;
     }
 
-    public function collection()
+    public function view(): View
     {
-        return $this->filteredRecords;
+        return view('admin.tenant-records.exports.excel', [
+            'filteredRecords' => $this->filteredRecords,
+            'tenantName' => $this->filteredRecords->first()->tenant_name,
+            'apartment' => $this->filteredRecords->first()->apartment,
+        ]);
     }
 
-    public function headings(): array
+    public function styles(Worksheet $sheet)
     {
-        // Define the column headings here
-        return [
-            '#ID',
-            'Tenant Name',
-            'Apartment',
-            'Status',
-            'Rent Fee',
-            'Paid Amount',
-            'Payment Date',
-            'Debt Amount',
-            'Debt Due-Date',
-            'Rent Due-Date',
-            'Payment Method',
-            'Notes',
-            'Payment Proof',
-            'Created At',
-            'Updated At',
-        ];
+        // Apply bold styling to "Tenant Name" and "Apartment" headers
+        $sheet->getStyle('A1:D2')->applyFromArray([
+            'font' => [
+                'bold' => true,
+            ],
+        ]);
+        // Apply bold styling to the second subheading headers
+        $sheet->getStyle('A3:M3')->applyFromArray([
+            'font' => [
+                'bold' => true,
+            ],
+        ]);
     }
+
 }
-

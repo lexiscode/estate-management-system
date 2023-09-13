@@ -117,7 +117,7 @@ class TenantRecordController extends Controller
         $rentFee = $filteredRecords->first()->rent_fee;
 
         // Generate the PDF using the PDF facade
-        $pdf = PDF::loadView('admin.tenant-records.pdf_view', compact('filteredRecords', 'selectedTenantNames',
+        $pdf = PDF::loadView('admin.tenant-records.exports.pdf_view', compact('filteredRecords', 'selectedTenantNames',
         'selectedApartments', 'totalAmountPaid', 'totalDebtAmount', 'rentFee'));
 
         // Download the PDF file with a specific filename
@@ -163,7 +163,7 @@ class TenantRecordController extends Controller
         $filteredRecords = $query->orderBy('created_at', 'asc')->get();
 
         // Generate and download the Excel file
-        return Excel::download(new TenantRecordsExport($filteredRecords), 'tenant_records.xlsx');
+        return Excel::download(new TenantRecordsExport($filteredRecords), "$selectedTenantNames-RentStatements.xlsx");
     }
 
 }
