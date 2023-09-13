@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <label for="property-details">Property Details</label>
-                            <textarea class="summernote-simple" name="property_details" id="property-details"></textarea>
+                            <textarea class="form-control" name="property_details" id="property-details"></textarea>
                         </div>
 
                         <div class="form-row">
@@ -147,6 +147,33 @@
                             <input type="number" name="pantry" class="form-control" id="inputPantry">
                         </div>
                     </div>
+                    <hr>
+                    <br><br>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="in_featured" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Featured</span>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="in_recommended" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Recommended</span>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="in_hot" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Hot</span>
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Add</button>
                     </div>

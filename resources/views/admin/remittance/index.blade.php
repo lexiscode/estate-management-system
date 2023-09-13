@@ -119,7 +119,7 @@
 
                                         <a href="{{ route('admin.remit.edit', $remittance->id) }}"
                                             class="btn btn-primary btn-action mr-1" data-original-title="Edit">
-                                            <i class="fas fa-pencil-alt"></i>
+                                            <i class="far fa-edit"></i>
                                         </a>
 
                                         <form method="POST"

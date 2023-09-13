@@ -29,6 +29,13 @@
 
                     <div class="card-body">
                         <div class="form-group row mb-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="featured" class="custom-switch-input" {{ $blog->featured ? 'checked' : '' }}>
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Featured</span>
+                            </label>
+                        </div>
+                        <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="title">Title</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="text" class="form-control" name="title" id="title" value="{{ $blog->title }}">
@@ -47,8 +54,8 @@
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="content">Content</label>
 
                             <div class="col-sm-12 col-md-7">
-                                
-                                <textarea class="summernote-simple" name="content" id="content">{{ $blog->content }}</textarea>
+
+                                <textarea class="form-control" name="content" id="content">{{ $blog->content }}</textarea>
                             </div>
 
                         </div>

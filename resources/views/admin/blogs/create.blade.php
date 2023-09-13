@@ -4,7 +4,7 @@
     <section class="section">
 
         <div class="section-header">
-            <h1>Manage Properties</h1>
+            <h1>Manage Blog</h1>
         </div>
 
         <div class="card card-warning">
@@ -29,6 +29,13 @@
 
                     <div class="card-body">
                         <div class="form-group row mb-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="featured" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Featured</span>
+                            </label>
+                        </div>
+                        <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="title">Title</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="text" class="form-control" name="title" id="title">
@@ -45,12 +52,12 @@
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="content">Content</label>
-
                             <div class="col-sm-12 col-md-7">
-                                <textarea class="summernote-simple" name="content"></textarea>
+                                <textarea class="form-control" name="content"></textarea>
                             </div>
 
                         </div>
+
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                             <div class="col-sm-12 col-md-7">

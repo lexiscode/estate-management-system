@@ -43,6 +43,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+
         // Validation rules for the form fields
         $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:255'],
@@ -54,7 +55,11 @@ class PropertyController extends Controller
             'agent_name' => ['required', 'string', 'max:255'],
             'agent_no' => ['required', 'string', 'max:18'],
             'status' => ['required', 'string'],
+            'in_featured' => ['nullable', 'string'],
+            'in_recommended' => ['nullable', 'string'],
+            'in_hot' => ['nullable', 'string'],
         ]);
+
 
         // Handle image upload
         if ($request->hasFile('image')) {
@@ -67,6 +72,11 @@ class PropertyController extends Controller
             // Save the image name to the database
             $validatedData['image'] = $imageName;
         }
+
+        // Add checkbox values to $validatedData (1 or 0)
+        $validatedData['in_featured'] = $request->has('in_featured');
+        $validatedData['in_recommended'] = $request->has('in_recommended');
+        $validatedData['in_hot'] = $request->has('in_hot');
 
         // Create a new property using the validated data
         $property = Property::create($validatedData);
@@ -137,21 +147,39 @@ class PropertyController extends Controller
         // Find the Property model by ID
         $property = Property::findOrFail($id);
 
-        // Update the Property attributes
-        $property->update($request->except('image'));
+        // Validation rules for the form fields
+        $validatedData = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'property_details' => ['required', 'string'],
+            'property_type' => ['required', 'string'],
+            'price' => ['required', 'numeric'],
+            'location' => ['required', 'string'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:1024'],
+            'agent_name' => ['required', 'string', 'max:255'],
+            'agent_no' => ['required', 'string', 'max:18'],
+            'status' => ['required', 'string'],
+            'in_featured' => ['nullable', 'string'],
+            'in_recommended' => ['nullable', 'string'],
+            'in_hot' => ['nullable', 'string'],
+        ]);
 
         // Handle image upload if a new image is provided
         if ($request->hasFile('image')) {
-
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            $imagePath = 'uploads/properties/' . $imageName;
             $image->move(public_path('uploads/properties'), $imageName);
 
             // Save the new image name to the database
-            $property->image = $imageName;
-            $property->save();
+            $validatedData['image'] = $imageName;
         }
+
+        // Add checkbox values to $validatedData
+        $validatedData['in_featured'] = $request->has('in_featured');
+        $validatedData['in_recommended'] = $request->has('in_recommended');
+        $validatedData['in_hot'] = $request->has('in_hot');
+
+        // Update the Property attributes
+        $property->update($validatedData);
 
         // Handle availability data update
         $availabilityData = $request->only([

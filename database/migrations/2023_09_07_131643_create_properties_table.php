@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('agent_name');
             $table->string('agent_no');
             $table->string('status');
+            $table->string('in_featured')->nullable();
+            $table->string('in_recommended')->nullable();
+            $table->string('in_hot')->nullable();
             $table->timestamps();
         });
     }

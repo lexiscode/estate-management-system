@@ -124,6 +124,24 @@
   <!-- Filter search JS File -->
   <script src="{{ asset("admin/assets/js/filter.js") }}"></script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get the submit button and form
+        const submitButton = document.getElementById("submit-button");
+        const form = document.querySelector("form");
+
+        // Add a click event listener to the submit button
+        submitButton.addEventListener("click", function () {
+            // Get the Summernote content and set it in the hidden textarea
+            const summernoteContent = $(".summernote").summernote("code");
+            $("#summernote-content").val(summernoteContent);
+
+            // Submit the form
+            form.submit();
+        });
+    });
+</script>
+
 
 </body>
 </html>

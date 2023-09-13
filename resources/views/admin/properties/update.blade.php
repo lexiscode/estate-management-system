@@ -161,6 +161,33 @@
                             <input type="text" name="pantry" class="form-control" id="inputPantry" value="{{ $property->availability->pantry }}">
                         </div>
                     </div>
+                    <hr>
+                    <br><br>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="in_featured" class="custom-switch-input" {{ $property->in_featured ? 'checked' : '' }}>
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Featured</span>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="in_recommended" class="custom-switch-input" {{ $property->in_recommended ? 'checked' : '' }}>
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Recommended</span>
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="custom-switch mt-2">
+                                <input type="checkbox" name="in_hot" class="custom-switch-input" {{ $property->in_hot ? 'checked' : '' }}>
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Set as Hot</span>
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
@@ -170,4 +197,5 @@
         </div>
 
     </section>
+    
 @endsection

@@ -15,7 +15,8 @@ class Property extends Model
         'property_type', 'price',
         'location', 'image',
         'agent_name','agent_no',
-        'status',
+        'status', 'in_featured',
+        'in_recommended', 'in_hot'
     ];
 
     public function availability()

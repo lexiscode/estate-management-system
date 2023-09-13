@@ -22,7 +22,7 @@
 
 
             <li class="menu-header">Manage Rent Records</li>
-            <li class="dropdown">
+            <li class="dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                     <span>Manage Rent Records</span></a>
                 <ul class="dropdown-menu">

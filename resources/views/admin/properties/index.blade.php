@@ -101,7 +101,7 @@
 
                                             <a href="{{ route('admin.property.edit', $property->id) }}"
                                                 class="btn btn-primary btn-action mr-1" data-original-title="Edit">
-                                                <i class="fas fa-pencil-alt"></i>
+                                                <i class="far fa-edit"></i></i>
                                             </a>
 
                                             <form method="POST"

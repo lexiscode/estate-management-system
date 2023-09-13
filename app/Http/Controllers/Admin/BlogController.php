@@ -38,11 +38,13 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         // Validation rules for the form fields
         $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'content' => ['required', 'string'],
+            'featured' => ['nullable', 'string'],
         ]);
 
         // Handle image upload
@@ -56,6 +58,9 @@ class BlogController extends Controller
             // Save the image name to the database
             $validatedData['image'] = $imageName;
         }
+
+        // Add checkbox values to $validatedData (1 or 0)
+        $validatedData['featured'] = $request->has('featured');
 
         // Create a new blog using the validated data
         Blog::create($validatedData);
@@ -101,6 +106,9 @@ class BlogController extends Controller
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'content' => ['required', 'string'],
         ]);
+
+        // Add checkbox values to $validatedData (1 or 0)
+        $validatedData['featured'] = $request->has('featured');
 
         // Update the Blog attributes
         $blog->update($validatedData);
