@@ -13,6 +13,7 @@
 
     <div class="container">
         <div class="spacer">
+            <h2 style="text-align: center;">Create a New Account</h2>
             <div class="row register">
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
@@ -33,11 +34,10 @@
                         {{-- <textarea rows="6" class="form-control" placeholder="Address" name="form_message"></textarea> --}}
                         <button type="submit" class="btn btn-success" name="Submit">Register</button>
 
-
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
+
 @endsection

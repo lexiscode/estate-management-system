@@ -26,6 +26,7 @@
 
     <div class="container">
         <div class="spacer">
+            <h2 style="text-align: center;">You Can Reach Us!</h2>
             <div class="row contact">
                 <div class="col-lg-6 col-sm-6 ">
                     <form method="POST" action="{{ route('admin.post-enquiry.store') }}">

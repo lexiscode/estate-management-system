@@ -105,21 +105,37 @@ class RemittanceController extends Controller
         // Find the Property model by ID
         $remittance = Remittance::findOrFail($id);
 
-        // Update the Property attributes
-        $remittance->update($request->except('payment_proof'));
+        // Validation rules for the form fields
+        $validatedData = $request->validate([
+            'tenant_name' => ['required', 'string', 'max:50'],
+            'apartment' => ['required', 'string'],
+            'status' => ['required', 'string'],
+            'rent_fee' => ['required', 'numeric'],
+            'amount_paid' => ['required', 'numeric'],
+            'payment_date' => ['required', 'date'],
+            'debt_amount' => ['nullable', 'numeric'],
+            'debt_due_date' => ['nullable', 'date'],
+            'rent_due_date' => ['required', 'date'],
+            'payment_method' => ['required', 'string'],
+            'payment_proof' => ['file', 'mimes:jpeg,png,jpg,pdf', 'max:5120', 'nullable'],
+            'notes' => ['string', 'max:100', 'nullable'],
+
+        ]);
 
         // Handle image upload if a new image is provided
         if ($request->hasFile('payment_proof')) {
 
             $image = $request->file('payment_proof');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            $imagePath = 'uploads/remittances/' . $imageName;
-            $image->move(public_path('uploads/remittances'), $imageName);
+            $imagePath = 'uploads/remits/' . $imageName;
+            $image->move(public_path('uploads/remits'), $imageName);
 
             // Save the new image name to the database
-            $remittance->payment_proof = $imageName;
-            $remittance->save();
+            $validatedData['payment_proof'] = $imageName;
         }
+
+        // Update the Remittance attributes
+        $remittance->update($validatedData);
 
         return redirect()->route('admin.remit.index')
                         ->with('update-success', 'The tenant data has been updated successfully!');

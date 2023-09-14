@@ -7,11 +7,11 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('view.home') }}">Stisla</a>
+            <a href="{{ route('view.home') }}">Bootstrap RealEstate</a>
             {{-- <a href="{{ route('view.home') }}"><img src={{ asset('users/images/logo.png') }} alt="Realestate"></a> --}}
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('view.home') }}">St</a>
+            <a href="{{ route('view.home') }}">B-RE</a>
         </div>
         <ul class="sidebar-menu">
 
