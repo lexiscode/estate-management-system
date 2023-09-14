@@ -17,10 +17,10 @@
         <tr>
             <th>#ID</th>
             <th>Status</th>
-            <th>Rent Fee</th>
-            <th>Paid Amount</th>
+            <th>Rent Fee (NGN)</th>
+            <th>Paid Amount (NGN)</th>
             <th>Payment Date</th>
-            <th>Debt Amount</th>
+            <th>Debt Amount (NGN)</th>
             <th>Debt Due-Date</th>
             <th>Rent Due-Date</th>
             <th>Payment Method</th>

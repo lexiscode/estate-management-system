@@ -47,9 +47,9 @@
                 <tr>
                     <th>#ID</th>
                     <th>Status</th>
-                    <th>Amount Paid (&#8358;)</th>
+                    <th>Amount Paid (NGN)</th>
                     <th>Payment Date</th>
-                    <th>Debt Amount(&#8358;)</th>
+                    <th>Debt Amount(NGN)</th>
                     <th>Debt Due-Date</th>
                     <th>Rent Due-Date</th>
                     <th>Payment Method</th>
