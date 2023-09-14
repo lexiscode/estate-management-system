@@ -154,7 +154,7 @@ class PropertyController extends Controller
             'property_type' => ['required', 'string'],
             'price' => ['required', 'numeric'],
             'location' => ['required', 'string'],
-            'image' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:1024'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:1024'],
             'agent_name' => ['required', 'string', 'max:255'],
             'agent_no' => ['required', 'string', 'max:18'],
             'status' => ['required', 'string'],

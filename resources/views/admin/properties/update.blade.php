@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="uploadImage">Upload Image:</label>
-                                <input type="file" class="form-control" name="image" id="uploadImage" required>
+                                <input type="file" class="form-control" name="image" id="uploadImage">
                             </div>
 
                             <div class="form-group col-md-3">
@@ -197,5 +197,5 @@
         </div>
 
     </section>
-    
+
 @endsection

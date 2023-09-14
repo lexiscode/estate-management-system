@@ -103,7 +103,7 @@ class BlogController extends Controller
         // Validation rules for the form fields
         $validatedData = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'content' => ['required', 'string'],
         ]);
 
@@ -125,6 +125,9 @@ class BlogController extends Controller
 
             // Save the new image name to the database
             $blog->image = $imageName;
+            $blog->save();
+            
+        }else{
             $blog->save();
         }
 

@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Agent;
 use App\Models\Blog;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -27,12 +28,15 @@ class ViewController extends Controller
         return view('users.agents', compact('agents'));
     }
 
-    // Display the blog page.
+    // Display the blog list page.
     public function blog()
     {
         $blogs = Blog::orderBy('created_at', 'asc')->simplePaginate(5);
 
-        return view('users.blog', compact('blogs'));
+        // Filter records based on if the in_hot column holds a value
+        $featuredBlogs = Blog::where('featured', true)->take(5)->get();
+
+        return view('users.blog', compact('blogs', 'featuredBlogs'));
     }
 
     // Display the contact page.

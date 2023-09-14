@@ -17,8 +17,11 @@ class BlogDetailController extends Controller
 
         $blogs = Blog::all();
 
-        return view('users.blog-detail', compact('blog', 'blogs'));
+        // Filter records based on if the in_hot column holds a value
+        $featuredBlogs = Blog::where('featured', true)->take(5)->get();
+
+        return view('users.blog-detail', compact('blog', 'blogs', 'featuredBlogs'));
     }
-    
+
 }
 

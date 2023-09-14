@@ -99,7 +99,7 @@ class AgentController extends Controller
        // Validation rules for the form fields
        $validatedData = $request->validate([
             'name' => ['required', 'string'],
-            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'about' => ['required', 'string'],
             'email' => ['required', 'string', 'email'],
             'phone_no' => ['required', 'string'],
@@ -120,6 +120,9 @@ class AgentController extends Controller
 
             // Save the new image name to the database
             $agent->image = $imageName;
+            $agent->save();
+            
+        }else{
             $agent->save();
         }
 
