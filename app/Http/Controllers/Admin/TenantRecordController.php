@@ -81,7 +81,6 @@ class TenantRecordController extends Controller
         // Retrieve the selected tenant names and apartments
         $selectedTenantNames = $request->input('name_of_tenant');
         $selectedApartments = $request->input('name_of_apartment');
-
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
 
@@ -109,6 +108,7 @@ class TenantRecordController extends Controller
             $query->whereBetween('rent_due_date', [$startDate, $endDate]);
         }
 
+        // Get the filtered records
         $filteredRecords = $query->orderBy('created_at', 'asc')->get();
 
         // Calculate the totals for Amount Paid and Debt Amount
