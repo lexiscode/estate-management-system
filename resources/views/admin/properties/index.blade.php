@@ -66,7 +66,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Title</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Price (₦)</th>
                             <th scope="col">Status</th>
                             <th scope="col">Property Type</th>
                             <th scope="col">
@@ -134,3 +134,4 @@
     </section>
 
 @endsection
+

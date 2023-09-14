@@ -218,15 +218,50 @@
                     <div class="properties">
                         <div class="image-holder">
                             <img src="{{ asset('uploads/properties/' . $property->image) }}" class="img-responsive" alt="property-image" />
+                            @if ($property->status === 'Rent')
+                            <div class="status rent">{{ $property->status }}</div>
+                            @elseif ($property->status === 'Sold')
                             <div class="status sold">{{ $property->status }}</div>
+                            @elseif ($property->status === 'New')
+                            <div class="status new">{{ $property->status }}</div>
+                            @endif
                         </div>
                         <h4><a href="{{ route('view.property-detail', $property->id) }}">{{ $property->title }}</a></h4>
                         <p class="price">Price: ₦{{ number_format($property->price, 2) }}</p>
                         <div class="listing-detail">
-                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span>
-                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span>
-                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span>
-                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span>
+                            @if ($property->availability->bedroom == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bedroom">{{ $property->availability->bedroom }}</span>
+                            @endif
+                            @if ($property->availability->livingroom == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">{{ $property->availability->livingroom }}</span>
+                            @endif
+                            @if ($property->availability->parking == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">{{ $property->availability->parking }}</span>
+                            @endif
+                            @if ($property->availability->kitchen == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">{{ $property->availability->kitchen }}</span>
+                            @endif
+                            @if ($property->availability->storeroom == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Store Room">{{ $property->availability->storeroom }}</span>
+                            @endif
+                            @if ($property->availability->bathroom == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bathroom">{{ $property->availability->bathroom }}</span>
+                            @endif
+                            @if ($property->availability->diningroom == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Dining Room">{{ $property->availability->diningroom }}</span>
+                            @endif
+                            @if ($property->availability->balcony == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Balcony">{{ $property->availability->balcony }}</span>
+                            @endif
+                            @if ($property->availability->guestroom == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Guest Room">{{ $property->availability->guestroom }}</span>
+                            @endif
+                            @if ($property->availability->closets == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Closets">{{ $property->availability->closets }}</span>
+                            @endif
+                            @if ($property->availability->pantry == true)
+                            <span data-toggle="tooltip" data-placement="bottom" data-original-title="Pantry">{{ $property->availability->pantry }}</span>
+                            @endif
                         </div>
                         <a class="btn btn-primary" href="{{ route('view.property-detail', $property->id) }}">View Details</a>
                     </div>
@@ -235,6 +270,7 @@
 
             </div>
         </div>
+
         <div class="spacer">
             <div class="row">
                 <div class="col-lg-6 col-sm-9 recent-view">
@@ -248,58 +284,22 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
                     <h3>Recommended Properties</h3>
                     <div id="myCarousel" class="carousel slide">
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-                            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-                            <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-                        </ol>
+
                         <!-- Carousel items -->
                         <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src={{ asset('users/images/properties/1.jpg') }}
-                                            class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">$300,000</p>
-                                        <a href="#" class="more">More Detail</a>
-                                    </div>
+
+                            @foreach ($filteredRecommendedProperties as $recommendedProperty)
+                            <div class="row">
+                                <div class="col-lg-4"><img src="{{ asset('uploads/properties/' . $recommendedProperty->image) }}"
+                                        class="img-responsive" alt="properties" /></div>
+                                <div class="col-lg-8">
+                                    <h5><a href="{{ route('view.property-detail', $recommendedProperty->id) }}">{{ $recommendedProperty->property_type }}</a></h5>
+                                    <p class="price">₦{{ number_format($recommendedProperty->price, 2) }}</p>
+                                    <a href="{{ route('view.property-detail', $recommendedProperty->id) }}" class="more">More Detail</a>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src={{ asset('users/images/properties/2.jpg') }}
-                                            class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">$300,000</p>
-                                        <a href="#" class="more">More Detail</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src={{ asset('users/images/properties/3.jpg') }}
-                                            class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">$300,000</p>
-                                        <a href="#" class="more">More Detail</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-lg-4"><img src={{ asset('users/images/properties/4.jpg') }}
-                                            class="img-responsive" alt="properties" /></div>
-                                    <div class="col-lg-8">
-                                        <h5><a href="#">Integer sed porta quam</a></h5>
-                                        <p class="price">$300,000</p>
-                                        <a href="#" class="more">More Detail</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>

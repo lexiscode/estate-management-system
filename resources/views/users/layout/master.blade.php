@@ -70,6 +70,7 @@
     @include('users.layout.footer')
 
 
+
 </body>
 
 </html>
