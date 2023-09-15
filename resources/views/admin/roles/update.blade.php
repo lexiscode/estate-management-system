@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('edit-roles')
+@section('update-roles')
     <section class="section">
 
         <div class="section-header">

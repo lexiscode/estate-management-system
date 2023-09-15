@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SearchRemitController;
 use App\Http\Controllers\Admin\SearchPropertyController;
 use App\Http\Controllers\Admin\TenantRecordController;
 use App\Http\Controllers\Admin\RolePermissionController;
+use App\Http\Controllers\Admin\RoleUserController;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -71,5 +72,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('role/{role}/edit', [RolePermissionController::class, 'edit'])->name('role.edit');
     Route::put('role/{role}', [RolePermissionController::class, 'update'])->name('role.update');
     Route::delete('role/{role}', [RolePermissionController::class, 'destroy'])->name('role.destroy');
+
+    // Admin User Roles
+    Route::resource('role-user', RoleUserController::class);
 });
 

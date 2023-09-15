@@ -84,7 +84,12 @@
         <!-- Roles and Permissions section-->
         @yield('index-roles')
         @yield('create-roles')
-        @yield('edit-roles')
+        @yield('update-roles')
+
+        <!-- Role Users Management-->
+        @yield('index-role-users')
+        @yield('create-role-users')
+        @yield('update-role-users')
 
 
       </div>

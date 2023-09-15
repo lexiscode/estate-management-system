@@ -21,7 +21,7 @@ class PropertyController extends Controller
         //$properties = Property::with('availability')->get();
         $properties = Property::with('availability')->orderBy('created_at', 'desc')->simplePaginate(5);
 
-        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(4);
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('admin.properties.index', compact('properties', 'post_enquiries'));
     }
