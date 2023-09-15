@@ -67,11 +67,11 @@
                         @if ($roles->isEmpty())
                             <p>No roles found.</p>
                         @else
-                            @foreach ($roles as $role)
+                            @foreach ($role_users as $user)
                                 <tr class="text-center">
-                                    <td>{{ $role->id }}</td>
-                                    <td>{{ $role->name }}</td>
-                                    <td></td>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user-> }}</td>
                                     <td>
                                         <div style="text-align: center;">
 

@@ -24,15 +24,23 @@
 
             <div class="card-body">
                 <!-- This is a form to create new property-->
-                <form method="POST" action="{{ route('admin.property.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.role-user.store') }}">
                     @csrf
 
-                    <div class="card" id="sample-login">
+                    <div class="card" id="sample-login" style="padding:20px">
 
                         <div class="form-group">
-                            <label for="role">Username</label>
-                            <input type="text" name="username" class="form-control" id="username">
-                            @error('username')
+                            <label for="name">Username</label>
+                            <input type="text" name="name" class="form-control" id="name">
+                            @error('name')
+                                <p class='text-danger'>{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email">
+                            @error('email')
                                 <p class='text-danger'>{{ $message }}</p>
                             @enderror
                         </div>
@@ -46,9 +54,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="confirm_password">Confirm Password</label>
-                            <input type="password" name="confirm_password" class="form-control" id="confirm_password">
-                            @error('confirm_password')
+                            <label for="password_confirmation">Confirm Password</label>
+                            <input type="password" name="password_confirmation" class="form-control" id="password_confirmation">
+                            @error('password_confirmation')
                                 <p class='text-danger'>{{ $message }}</p>
                             @enderror
                         </div>

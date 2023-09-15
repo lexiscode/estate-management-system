@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\RoleUserStoreRequest;
+use App\Models\Admin;
 use App\Models\PostEnquiry;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -16,6 +17,7 @@ class RoleUserController extends Controller
      */
     public function index()
     {
+
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
         return view('admin.role-users.index', compact('post_enquiries'));
@@ -36,9 +38,20 @@ class RoleUserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RoleUserStoreRequest $request)
     {
-        //
+        // just chose to try using instance method style here lolz
+        $user = new Admin();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        // assigns the role to user
+        $user->assignRole($request->role);
+
+        return redirect()->route('admin.role-user.index')
+        ->with('success', 'New user and their role has been added successfully!');;
     }
 
     /**
@@ -46,7 +59,7 @@ class RoleUserController extends Controller
      */
     public function show(string $id)
     {
-        //
+
     }
 
     /**
