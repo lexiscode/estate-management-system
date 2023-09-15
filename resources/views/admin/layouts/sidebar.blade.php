@@ -40,8 +40,17 @@
             <li><a class="nav-link" href="{{ route('admin.post-enquiry.index') }}"><i class="far fa-square"></i> <span>Messages</span></a></li>
 
 
-            <li class="menu-header">Navigation Menu</li>
+            <li class="menu-header">Access Management</li>
+            <li class="dropdown active">
+                <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
+                    <span>Roles & Permissions</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.role.index') }}"><i class="far fa-square"></i><span>Role & Permission</span></a></li>
+                </ul>
+            </li>
 
+
+            <li class="menu-header">Navigation Menu</li>
             <li><a class="nav-link" href="{{ route('admin.about.edit', ['about' => 1]) }}"><i class="far fa-square"></i> <span>About</span></a></li>
             <li><a class="nav-link" href="{{ route('admin.agent.index') }}"><i class="far fa-square"></i> <span>Agents</span></a></li>
             <li><a class="nav-link" href="{{ route('admin.blog.index') }}"><i class="far fa-square"></i> <span>Blogs</span></a></li>

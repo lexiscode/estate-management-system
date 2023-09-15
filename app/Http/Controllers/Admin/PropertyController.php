@@ -108,7 +108,8 @@ class PropertyController extends Controller
             $property->availability()->save($availability);
         }
 
-        return redirect()->route('admin.property.index')->with('creation-success', 'New property has been added successfully!');
+        return redirect()->route('admin.property.index')
+        ->with('creation-success', 'New property has been added successfully!');
     }
 
 

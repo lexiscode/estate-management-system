@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\RemittanceController;
 use App\Http\Controllers\Admin\SearchRemitController;
 use App\Http\Controllers\Admin\SearchPropertyController;
 use App\Http\Controllers\Admin\TenantRecordController;
+use App\Http\Controllers\Admin\RolePermissionController;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
@@ -63,5 +64,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('statement/generate-pdf', [TenantRecordController::class, 'generatePDF'])->name('statement.generate-pdf');
     Route::get('statement/generate-excel', [TenantRecordController::class, 'generateExcel'])->name('statement.generate-excel');
 
+    // This route is for Roles and Permission Controller
+    Route::get('role', [RolePermissionController::class, 'index'])->name('role.index');
+    Route::get('role/create', [RolePermissionController::class, 'create'])->name('role.create');
+    Route::post('role/store', [RolePermissionController::class, 'store'])->name('role.store');
+    Route::get('role/{role}/edit', [RolePermissionController::class, 'edit'])->name('role.edit');
+    Route::put('role/{role}', [RolePermissionController::class, 'update'])->name('role.update');
+    Route::delete('role/{role}', [RolePermissionController::class, 'destroy'])->name('role.destroy');
 });
 
