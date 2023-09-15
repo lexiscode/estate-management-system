@@ -56,32 +56,36 @@
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
-                            <th class="text-center">Role Name</th>
-                            <th class="text-center">Permissions</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Role</th>
                             <th>
                                 <div style="text-align: center;">Actions</div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($roles->isEmpty())
-                            <p>No roles found.</p>
+                        @if ($admins->isEmpty())
+                            <p>No users found.</p>
                         @else
-                            @foreach ($role_users as $user)
+                            @foreach ($admins as $admin)
                                 <tr class="text-center">
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user-> }}</td>
+                                    <td>{{ $admin->id }}</td>
+                                    <td>{{ $admin->name }}</td>
+                                    <td>{{ $admin->email }}</td>
+                                    <td><span class="badge bg-primary text-light">
+                                        {{ $admin->getRoleNames()->first() }}
+                                    </span></td>
                                     <td>
                                         <div style="text-align: center;">
 
-                                            <a href="{{ route('admin.role.edit', $role->id) }}"
+                                            <a href="{{ route('admin.role.edit', $admin->id) }}"
                                                 class="btn btn-primary btn-action mr-1" data-original-title="Edit">
                                                 <i class="far fa-edit"></i></i>
                                             </a>
 
                                             <form method="POST"
-                                                action="{{ route('admin.role.destroy', $role->id) }}"
+                                                action="{{ route('admin.role.destroy', $admin->id) }}"
                                                 style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
@@ -100,7 +104,7 @@
                 </table>
                 <!-- Simple pagination links -->
                 <div class="pagination" style="margin: 0 auto; justify-content: center; margin-top: 10px;">
-                    {{ $roles->links('pagination::simple-bootstrap-4') }}
+                    {{ $admins->links('pagination::simple-bootstrap-4') }}
                 </div>
 
             </div>

@@ -17,10 +17,10 @@ class RoleUserController extends Controller
      */
     public function index()
     {
-
+        $admins = Admin::simplePaginate(5);
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
-        return view('admin.role-users.index', compact('post_enquiries'));
+        return view('admin.role-users.index', compact('post_enquiries', 'admins'));
     }
 
     /**
