@@ -15,6 +15,7 @@ class AgentController extends Controller
     {
         $this->middleware('role_or_permission:agent index,admin')->only('index');
         $this->middleware('role_or_permission:agent create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:agent show,admin')->only('show');
         $this->middleware('role_or_permission:agent update,admin')->only('edit', 'update');
         $this->middleware('role_or_permission:agent delete,admin')->only('destroy');
     }
