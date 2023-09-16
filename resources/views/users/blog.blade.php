@@ -28,7 +28,7 @@
                         <div class="col-lg-8 col-sm-8 ">
                             <h3><a href="{{ route('view.blog-detail', $blog->id) }}">{{ $blog->title }}</a></h3>
                             <div class="info">Posted on: {{ $blog->created_at }}</div>
-                            <p>{{ Str::limit($blog->content, 200) }}</p>
+                            <p>{!! Str::limit($blog->content, 200) !!}</p>
                             <a href="{{ route('view.blog-detail', $blog->id) }}" class="more">Read More</a>
                         </div>
                     </div>

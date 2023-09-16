@@ -21,7 +21,7 @@
                     <div class="info">Posted on: {{ $blog->created_at }}</div>
                     <img src="{{ asset('uploads/blogs/' . $blog->image) }}" class="thumbnail img-responsive"
                         alt="blog title">
-                    <p>{{ $blog->content }}</p>
+                    <p>{!! $blog->content !!}</p>
                     <!-- blog detail -->
 
 
