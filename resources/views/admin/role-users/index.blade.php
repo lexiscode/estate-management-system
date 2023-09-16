@@ -60,6 +60,17 @@
                         </div>
                     </div>
                 @endif
+                <!-- Display updated admin role warning message if it exists -->
+                @if (session('update-error'))
+                    <div class="alert alert-warning alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                            </button>
+                            {{ session('update-error') }}
+                        </div>
+                    </div>
+                @endif
 
 
                 <!-- This is a simple table -->
@@ -88,6 +99,9 @@
                                         {{ $admin->getRoleNames()->first() }}
                                     </span></td>
                                     <td>
+                                        <!-- This if condition below, hides the edit and delete button for Super Admin
+                                        don't forget that we also have to block the url routes via controller methods of these
+                                        two functionalities, in case a user tries to access them via url-->
                                         @if ($admin->getRoleNames()->first() != 'Super Admin')
                                             <div style="text-align: center;">
 

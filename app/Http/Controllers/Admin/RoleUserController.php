@@ -94,6 +94,11 @@ class RoleUserController extends Controller
             $user->password = bcrypt($request->password);
         }
 
+        // blocks other users from accessing Super Admin's update functionality via url
+        if($user->name === 'Super Admin'){
+            return redirect()->route('admin.role-user.index')->with('update-error', 'You cannot edit user role of the Super Admin!');
+        }
+
         $user->save();
 
         // assigns the role to user

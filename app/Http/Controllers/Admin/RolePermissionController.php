@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\PostEnquiry;
+use App\Models\Admin;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -74,6 +75,12 @@ class RolePermissionController extends Controller
 
         // Create a role dynamically for users authenticating with the admin guard:
         $role = Role::findOrFail($id);
+
+        // blocks other users from accessing Super Admin's update functionality via url
+        if($role->name === 'Super Admin'){
+            return redirect()->route('admin.role.index')->with('update-error', 'You cannot edit access rights of the Super Admin!');
+        }
+
         $role->update(['guard_name' => 'admin', 'name' => $request->role]);
 
         // Assign multiple permissions to the role
@@ -87,8 +94,9 @@ class RolePermissionController extends Controller
     {
         $role = Role::findOrFail($id);
 
-        if($role->name === 'Moderator'){
-            return redirect()->back()->with('delete-error', 'You cannot delete the moderator!');
+        // blocks other users from accessing Super Admin's delete functionality via url
+        if($role->name === 'Super Admin'){
+            return redirect()->back()->with('delete-error', 'You cannot delete the Super Admin!');
         }
 
         $role->delete();
