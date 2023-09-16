@@ -25,7 +25,7 @@ class RoleUserStoreRequest extends FormRequest
             'name' => ['required', 'max:255'],
             'password' => ['required', 'min:6', 'confirmed'],
             'role' => ['required'],
-            'email' => ['required', 'max:255', 'email']
+            'email' => ['required', 'max:255', 'email', 'unique:admins,email']
         ];
     }
 }

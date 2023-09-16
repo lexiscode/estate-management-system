@@ -20,3 +20,9 @@ function hasPermission(array $permissions)
 }
 
 
+/** Get Setting */
+function getSetting($key)
+{
+    $data = Setting::where('key', $key)->first();
+    return $data->value;
+}

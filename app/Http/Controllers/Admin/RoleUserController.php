@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RoleUserStoreRequest;
 use App\Http\Requests\RoleUserUpdateRequest;
+use App\Mail\RoleUserCreateMail;
 use App\Models\Admin;
 use App\Models\PostEnquiry;
+use Illuminate\Support\Facades\Mail;
+
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -50,18 +53,28 @@ class RoleUserController extends Controller
      */
     public function store(RoleUserStoreRequest $request)
     {
-        // just chose to try using instance method style here lolz
-        $user = new Admin();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        try {
 
-        // assigns the role to user
-        $user->assignRole($request->role);
+            // just chose to try using instance method style here lolz
+            $user = new Admin();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->save();
 
-        return redirect()->route('admin.role-user.index')
-        ->with('success', 'New user and their role has been added successfully!');
+            // assigns the role to user
+            $user->assignRole($request->role);
+
+            /** send mail to the new role user */
+            Mail::to($request->email)->send(new RoleUserCreateMail($request->email, $request->password));
+
+            return redirect()->route('admin.role-user.index')
+                ->with('success', 'New user and their role has been added successfully!');
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
     }
 
     /**
