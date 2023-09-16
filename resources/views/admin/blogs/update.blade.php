@@ -39,24 +39,35 @@
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="title">Title</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="text" class="form-control" name="title" id="title" value="{{ $blog->title }}">
+
                             </div>
+                            @error('title')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Upload Image</label>
                             <div class="col-sm-12 col-md-7">
                                 <div class="form-group col-md-5">
-                                    <input type="file" class="form-control" name="image" id="uploadImage">
+                                    <div id="image-preview" class="image-preview">
+                                      <label for="image-upload" id="image-label">Choose File</label>
+                                      <input type="file" name="image" id="image-upload" />
+                                    </div>
+                                    @error('image')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
-
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="content">Content</label>
 
                             <div class="col-sm-12 col-md-7">
-
-                                <textarea class="form-control" name="content" id="content">{{ $blog->content }}</textarea>
+                                <textarea class="summernote" name="content" id="content">{{ $blog->content }}</textarea>
                             </div>
+                            @error('content')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
 
                         </div>
                         <div class="form-group row mb-4">
@@ -77,3 +88,17 @@
 
 @endsection
 
+@push('scripts')
+
+<script>
+    $(document).ready(function(){
+        var imagePath = '{{ asset("uploads/blogs/{$blog->image}") }}';
+        $('.image-preview').css({
+            "background-image": "url(" + imagePath + ")",
+            "background-size": "cover",
+            "background-position": "center center"
+        });
+    });
+</script>
+
+@endpush

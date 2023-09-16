@@ -51,7 +51,7 @@ class BlogController extends Controller
         //dd($request->all());
         // Validation rules for the form fields
         $validatedData = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255', 'unique:blogs,title'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'content' => ['required', 'string'],
             'featured' => ['nullable', 'string'],

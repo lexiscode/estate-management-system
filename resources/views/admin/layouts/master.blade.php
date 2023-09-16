@@ -123,10 +123,12 @@
   <script src="{{ asset('admin/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
   <script src="assets/modules/select2/dist/js/select2.full.min.js"></script>
   <script src="{{ asset('admin/assets/modules/jquery-selectric/jquery.selectric.min.js') }}"></script>
+  <script src="{{ asset('admin/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('admin/assets/js/page/index-0.js') }}"></script>
   <script src="assets/js/page/forms-advanced-forms.js"></script>
+  <script src="{{ asset('admin/assets/js/page/features-post-create.js') }}"></script>
 
   <!-- Template JS File -->
   <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
