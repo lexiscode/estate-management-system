@@ -12,11 +12,7 @@
                 <h4>Manage Your Roles Here!</h4>
                 <form class="card-header-form" action="{{ route('admin.property.search') }}" method="GET">
                     <div class="input-group">
-                        <input type="text" name="query" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
-                        </div>
-
+                        
                         <!-- This is the create new property button -->
                         <div class="card-header-action">
                             <a href="{{ route('admin.role.create') }}" class="btn btn-primary">Create New Role</a>

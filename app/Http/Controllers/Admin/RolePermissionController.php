@@ -47,7 +47,7 @@ class RolePermissionController extends Controller
         $role->syncPermissions($request->permissions); // from the permissions[] name
 
         return redirect()->route('admin.role.index')
-        ->with('success', 'Role has been created successfully!');
+        ->with('success', 'Role permissions has been created successfully!');
     }
 
     public function edit(string $id)
@@ -80,7 +80,7 @@ class RolePermissionController extends Controller
         $role->syncPermissions($request->permissions); // from the permissions[] name
 
         return redirect()->route('admin.role.index')
-        ->with('success', 'Role has been updated successfully!');
+        ->with('success', 'Role permissions has been updated successfully!');
     }
 
     public function destroy(string $id)
@@ -90,7 +90,7 @@ class RolePermissionController extends Controller
         if($role->name === 'Moderator'){
             return redirect()->back()->with('delete-error', 'You cannot delete the moderator!');
         }
-        
+
         $role->delete();
 
         return redirect()->back()->with('delete-success', 'Role has been deleted successfully!');

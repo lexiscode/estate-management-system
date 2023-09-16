@@ -38,26 +38,26 @@
                         </div>
 
                         <hr>
-
-                        @foreach ($permissions as $groupName => $permission)
                             <div class="form-group">
-                                <p>{{ $groupName }}:</p>
+                                @foreach ($permissions as $groupName => $permission)
+                                    <p><b>{{ $groupName }}:</b></p>
 
-                                <div class="row">
-                                    @foreach ($permission as $item)
-                                    <div class="form-group col-md-2">
-                                        <label class="custom-switch mt-2">
-                                            <input type="checkbox" value="{{ $item->name }}" name="permissions[]"
-                                            {{ in_array($item->name, $rolePermissions) ? 'checked':'' }}
-                                                class="custom-switch-input">
-                                            <span class="custom-switch-indicator"></span>
-                                            <span class="custom-switch-description">{{ $item->name }}</span>
-                                        </label>
+                                    <div class="row">
+                                        @foreach ($permission as $item)
+                                        <div class="form-group col-md-2">
+                                            <label class="custom-switch mt-2">
+                                                <input type="checkbox" value="{{ $item->name }}" name="permissions[]"
+                                                {{ in_array($item->name, $rolePermissions) ? 'checked':'' }}
+                                                    class="custom-switch-input">
+                                                <span class="custom-switch-indicator"></span>
+                                                <span class="custom-switch-description">{{ $item->name }}</span>
+                                            </label>
+                                        </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
-                                </div>
+                                    <hr>
+                                @endforeach
                             </div>
-                        @endforeach
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Update</button>

@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 
 class PostEnquiryController extends Controller
 {
+
     public function index()
     {
         $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
 
-        return view('admin.post-enquiries.index', compact('post_enquiries'))
-                            ;
+        return view('admin.post-enquiries.index', compact('post_enquiries'));
     }
 
     /**

@@ -40,8 +40,8 @@
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                     <span>Roles & Permissions</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.role.index') }}"><i class="far fa-square"></i><span>Role & Permission</span></a></li>
                     <li><a class="nav-link" href="{{ route('admin.role-user.index') }}"><i class="far fa-square"></i><span>Role Users</span></a></li>
+                    <li><a class="nav-link" href="{{ route('admin.role.index') }}"><i class="far fa-square"></i><span>Role & Permission</span></a></li>
                 </ul>
             </li>
 

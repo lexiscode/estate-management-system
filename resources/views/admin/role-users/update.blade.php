@@ -4,7 +4,7 @@
     <section class="section">
 
         <div class="section-header">
-            <h1>Manage Users</h1>
+            <h1>Manage Role Users</h1>
         </div>
 
         <div class="card card-primary">

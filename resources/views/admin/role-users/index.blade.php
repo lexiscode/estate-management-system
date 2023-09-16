@@ -4,7 +4,7 @@
     <section class="section">
 
         <div class="section-header">
-            <h1>{{ __('Manage Roles & Permissions') }}</h1>
+            <h1>{{ __('Manage Role Users') }}</h1>
         </div>
 
         <div class="card card-primary">

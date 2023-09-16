@@ -6,17 +6,28 @@ use App\Models\Property;
 use App\Models\Availability;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PostEnquiry;
+use App\Models\Admin;
 
 use Illuminate\Http\Request;
 
 
 class PropertyController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:property index,admin')->only('index');
+        $this->middleware('role_or_permission:property create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:property update,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:property delete,admin')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         // Retrieve all properties with their related availabilities
         //$properties = Property::with('availability')->get();
         $properties = Property::with('availability')->orderBy('created_at', 'desc')->simplePaginate(5);

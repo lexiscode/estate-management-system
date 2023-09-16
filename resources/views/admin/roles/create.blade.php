@@ -40,7 +40,7 @@
 
                         <div class="form-group">
                             @foreach ($permissions as $groupName => $permission)
-                                <p>{{ $groupName }}:</p>
+                                <p><b>{{ $groupName }}:</b></p>
                                 <div class="row">
                                     @foreach ($permission as $item)
                                     <div class="form-group col-md-2">
@@ -52,6 +52,7 @@
                                     </div>
                                     @endforeach
                                 </div>
+                                <hr>
                             @endforeach
                         </div>
 
