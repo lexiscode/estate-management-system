@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 
 class RolePermissionController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:access management index,admin')->only('index');
+        $this->middleware('role_or_permission:access management create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:access management update,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:access management delete,admin')->only('destroy');
+    }
 
     public function index()
     {

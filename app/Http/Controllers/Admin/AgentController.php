@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class AgentController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:agent index,admin')->only('index');
+        $this->middleware('role_or_permission:agent create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:agent update,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:agent delete,admin')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -121,7 +129,7 @@ class AgentController extends Controller
             // Save the new image name to the database
             $agent->image = $imageName;
             $agent->save();
-            
+
         }else{
             $agent->save();
         }

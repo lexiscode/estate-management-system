@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class PostEnquiryController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:message index,admin')->only('index');
+        $this->middleware('role_or_permission:message delete,admin')->only('destroy');
+    }
 
     public function index()
     {

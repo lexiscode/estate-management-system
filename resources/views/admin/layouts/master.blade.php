@@ -69,6 +69,7 @@
         @yield('create-agents')
         @yield('show-agent-details')
         @yield('update-agents')
+        @yield('search-agents')
 
         <!-- Remittance section -->
         @yield('index-remittances')

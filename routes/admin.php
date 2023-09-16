@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\RemittanceController;
 use App\Http\Controllers\Admin\SearchRemitController;
 use App\Http\Controllers\Admin\SearchPropertyController;
+use App\Http\Controllers\Admin\SearchAgentController;
 use App\Http\Controllers\Admin\TenantRecordController;
 use App\Http\Controllers\Admin\RolePermissionController;
 use App\Http\Controllers\Admin\RoleUserController;
@@ -58,6 +59,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::get('search-remit', [SearchRemitController::class, 'search'])->name('remit.search')->middleware('admin');
     // This route is for the search functionality in the Properties admin page
     Route::get('search-property', [SearchPropertyController::class, 'search'])->name('property.search')->middleware('admin');
+    // This route is for the search functionality in the Properties admin page
+    Route::get('search-agent', [SearchAgentController::class, 'search'])->name('agent.search')->middleware('admin');
 
     // Thess routes are for the TenantRecordController
     Route::get('statement', [TenantRecordController::class, 'index'])->name('statement.index')->middleware('admin');

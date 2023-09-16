@@ -16,6 +16,15 @@ use Illuminate\Http\Request;
 
 class TenantRecordController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:statement index,admin')->only('index');
+        $this->middleware('role_or_permission:statement view,admin')->only('create');
+        $this->middleware('role_or_permission:statement pdf,admin')->only('generatePdf');
+        $this->middleware('role_or_permission:statement excel,admin')->only('generateExcel');
+    }
+
     /**
      * Display a listing of the resource.
      */

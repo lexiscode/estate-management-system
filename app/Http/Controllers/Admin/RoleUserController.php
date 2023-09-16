@@ -13,6 +13,15 @@ use Illuminate\Http\Request;
 
 class RoleUserController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:user role index,admin')->only('index');
+        $this->middleware('role_or_permission:user role create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:user role update,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:user role delete,admin')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */

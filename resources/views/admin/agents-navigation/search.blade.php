@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('index-agents')
+@section('search-agents')
     <section class="section">
 
         <div class="section-header">
@@ -10,45 +10,18 @@
         <div class="card card-warning">
             <div class="card-header">
                 <h4>Checkout Agents Details Here!</h4>
-                <form class="card-header-form" action="{{ route('admin.agent.search') }}" method="GET">
+                <form class="card-header-form">
                     <div class="input-group">
-                        <input type="text" name="query" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary btn-icon"><i class="fas fa-search"></i></button>
-                        </div>
 
                         <!-- This is the add new agent button -->
                         <div class="card-header-action">
-                            <a href="{{ route('admin.agent.create') }}" class="btn btn-primary">Add New Agent</a>
+                            <a href="{{ route('admin.agent.index') }}" class="btn btn-primary">Back</a>
                         </div>
 
                     </div>
                 </form>
             </div>
             <div class="card-body">
-
-                <!-- Display new agent creation success message if it exists -->
-                @if (session('creation-success'))
-                    <div class="alert alert-success alert-dismissible show fade">
-                        <div class="alert-body">
-                            <button class="close" data-dismiss="alert">
-                                <span>×</span>
-                            </button>
-                            {{ session('creation-success') }}
-                        </div>
-                    </div>
-                @endif
-                <!-- Display updated agents success message if it exists -->
-                @if (session('update-success'))
-                    <div class="alert alert-success alert-dismissible show fade">
-                        <div class="alert-body">
-                            <button class="close" data-dismiss="alert">
-                                <span>×</span>
-                            </button>
-                            {{ session('update-success') }}
-                        </div>
-                    </div>
-                @endif
 
                 <!-- This is a simple table -->
                 <table class="table">
@@ -63,10 +36,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($agents->isEmpty())
-                            <p>No agent found.</p>
+                        @if ($agent_search->isEmpty())
+                            <p>No such Agent found.</p>
                         @else
-                            @foreach ($agents as $agent)
+                            @foreach ($agent_search as $agent)
                                 <tr>
                                     <td>{{ $agent->name }}</td>
                                     <td>{{ $agent->email }}</td>
@@ -100,11 +73,6 @@
                         @endif
                     </tbody>
                 </table>
-
-                <!-- Simple pagination links -->
-                <div class="pagination" style="margin: 0 auto; justify-content: center; margin-top: 10px;">
-                    {{ $agents->links('pagination::simple-bootstrap-4') }}
-                </div>
 
             </div>
         </div>

@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class RemittanceController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:remittance index,admin')->only('index');
+        $this->middleware('role_or_permission:remittance create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:remittance show,admin')->only('show');
+        $this->middleware('role_or_permission:remittance update,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:remittance delete,admin')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */

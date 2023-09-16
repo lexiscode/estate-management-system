@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class SearchRemitController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:remittance search,admin')->only('search');
+    }
 
     public function search(Request $request)
     {

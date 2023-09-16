@@ -11,6 +11,16 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:blog index,admin')->only('index');
+        $this->middleware('role_or_permission:blog create,admin')->only('create', 'store');
+        $this->middleware('role_or_permission:blog show,admin')->only('show');
+        $this->middleware('role_or_permission:blog update,admin')->only('edit', 'update');
+        $this->middleware('role_or_permission:blog delete,admin')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -126,7 +136,7 @@ class BlogController extends Controller
             // Save the new image name to the database
             $blog->image = $imageName;
             $blog->save();
-            
+
         }else{
             $blog->save();
         }

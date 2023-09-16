@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:about update,admin')->only('edit', 'update');
+    }
      /**
      * Display a listing of the resource.
      */
@@ -22,7 +27,7 @@ class AboutController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * 
+     *
      * NB: Ensure there's a data in the first ID of the abouts table, run seeder.
      */
     public function edit(string $id)
