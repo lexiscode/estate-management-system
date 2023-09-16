@@ -7,7 +7,7 @@
             <h1>{{ __('Manage Roles & Permissions') }}</h1>
         </div>
 
-        <div class="card card-warning">
+        <div class="card card-primary">
             <div class="card-header">
                 <h4>Manage Your Roles Here!</h4>
                 <form class="card-header-form" action="{{ route('admin.property.search') }}" method="GET">
@@ -49,6 +49,17 @@
                         </div>
                     </div>
                 @endif
+                <!-- Display deleted role user success message if it exists -->
+                @if (session('delete-error'))
+                    <div class="alert alert-warning alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                            </button>
+                            {{ session('delete-error') }}
+                        </div>
+                    </div>
+                @endif
 
 
                 <!-- This is a simple table -->
@@ -77,25 +88,26 @@
                                         {{ $admin->getRoleNames()->first() }}
                                     </span></td>
                                     <td>
-                                        <div style="text-align: center;">
+                                        @if ($admin->getRoleNames()->first() != 'Super Admin')
+                                            <div style="text-align: center;">
 
-                                            <a href="{{ route('admin.role.edit', $admin->id) }}"
-                                                class="btn btn-primary btn-action mr-1" data-original-title="Edit">
-                                                <i class="far fa-edit"></i></i>
-                                            </a>
+                                                <a href="{{ route('admin.role-user.edit', $admin->id) }}"
+                                                    class="btn btn-primary btn-action mr-1" data-original-title="Edit">
+                                                    <i class="far fa-edit"></i></i>
+                                                </a>
 
-                                            <form method="POST"
-                                                action="{{ route('admin.role.destroy', $admin->id) }}"
-                                                style="display: inline;">
-                                                @csrf
-                                                @method('DELETE')
+                                                <form method="POST"
+                                                    action="{{ route('admin.role-user.destroy', $admin->id) }}"
+                                                    style="display: inline;">
+                                                    @csrf
+                                                    @method('DELETE')
 
-                                                <button type='submit' class="btn btn-danger btn-action"><i
-                                                        class="fas fa-trash"></i></button>
+                                                    <button type='submit' class="btn btn-danger btn-action"><i
+                                                            class="fas fa-trash"></i></button>
 
-                                            </form>
-
-                                        </div>
+                                                </form>
+                                            </div>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

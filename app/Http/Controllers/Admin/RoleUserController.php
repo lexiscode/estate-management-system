@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RoleUserStoreRequest;
+use App\Http\Requests\RoleUserUpdateRequest;
 use App\Models\Admin;
 use App\Models\PostEnquiry;
 use Spatie\Permission\Models\Role;
@@ -51,7 +52,7 @@ class RoleUserController extends Controller
         $user->assignRole($request->role);
 
         return redirect()->route('admin.role-user.index')
-        ->with('success', 'New user and their role has been added successfully!');;
+        ->with('success', 'New user and their role has been added successfully!');
     }
 
     /**
@@ -67,15 +68,39 @@ class RoleUserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = Admin::findOrFail($id);
+        $roles = Role::all();
+
+        $post_enquiries = PostEnquiry::orderBy('created_at', 'desc')->simplePaginate(5);
+
+        return view('admin.role-users.update', compact('post_enquiries', 'user', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RoleUserUpdateRequest $request, string $id)
     {
-        //
+        // only when admin wants to also edit user password, then this will validate
+        if($request->has('password') && !empty($request->password)){
+            $request->validate(['password' => ['confirmed', 'min:6']]);
+        }
+
+        $user = Admin::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if($request->has('password') && !empty($request->password)){
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        // assigns the role to user
+        $user->syncRoles($request->role);
+
+        return redirect()->route('admin.role-user.index')
+        ->with('success', 'Updated the user and their role successfully!');
     }
 
     /**
@@ -83,6 +108,16 @@ class RoleUserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = Admin::findOrFail($id);
+
+        if ($user->getRoleNames()->first() === 'Super Admin'){
+            return redirect()->back()
+                    ->with('delete-error', 'Super Admin cannot be deleted!');
+        }
+
+        $user->delete();
+
+        return redirect()->back()
+            ->with('delete-success', 'User has been deleted successfully!');
     }
 }

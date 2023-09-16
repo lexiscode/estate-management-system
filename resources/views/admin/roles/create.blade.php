@@ -38,10 +38,9 @@
 
                         <hr>
 
-                        @foreach ($permissions as $groupName => $permission)
-                            <div class="form-group">
+                        <div class="form-group">
+                            @foreach ($permissions as $groupName => $permission)
                                 <p>{{ $groupName }}:</p>
-
                                 <div class="row">
                                     @foreach ($permission as $item)
                                     <div class="form-group col-md-2">
@@ -53,8 +52,8 @@
                                     </div>
                                     @endforeach
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Create</button>
