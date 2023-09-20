@@ -16,7 +16,9 @@
         <ul class="sidebar-menu">
 
             <li class="dropdown">
+                <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
                 <a href="{{ route('admin.dashboard.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                </li>
             </li>
 
 
