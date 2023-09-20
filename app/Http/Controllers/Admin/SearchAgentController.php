@@ -8,7 +8,7 @@ use App\Models\PostEnquiry;
 
 use Illuminate\Http\Request;
 
-class SearchPropertyController extends Controller
+class SearchAgentController extends Controller
 {
     // permissions management
     public function __construct()

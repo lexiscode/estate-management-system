@@ -87,3 +87,17 @@
 
 @endsection
 
+@push('scripts')
+
+    <script>
+        $(document).ready(function(){
+            var imageUrl = "{{ asset('uploads/blogs/' . $blog->image) }}";
+            $('.image-preview').css({
+                "background-image": "url(" + imageUrl + ")",
+                "background-size": "cover",
+                "background-position": "center center"
+            });
+        });
+    </script>
+
+@endpush
