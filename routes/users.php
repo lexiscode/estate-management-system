@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainMenu\ViewController;
-use App\Http\Controllers\HeaderMenu\BuySaleRentController;
-use App\Http\Controllers\BlogDetailController;
-use App\Http\Controllers\PropertyDetailController;
-use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BlogDetailController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\MainMenu\ViewController;
+use App\Http\Controllers\User\UserHomeController;
+use App\Http\Controllers\PropertyDetailController;
+use App\Http\Controllers\HeaderMenu\BuySaleRentController;
 
 
 // These routes is for the main menu
@@ -24,6 +25,4 @@ Route::get('property-detail/{property}', [PropertyDetailController::class, 'show
 Route::get('blog-detail/{blog}', [BlogDetailController::class, 'show'])->name('view.blog-detail');
 
 Route::post('newsletter', [NewsletterController::class, 'store'])->name('store.newsletter');
-
-
 
