@@ -151,9 +151,10 @@
             success_callback: null // Default: null
         });
     </script>
+    @stack('scripts') // renders js code in a specific blade view file only
 
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     @include('sweetalert::alert')
 
-    @stack('scripts') // renders js code in a specific blade view file only
 </body>
 </html>
