@@ -7,7 +7,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('view.home') }}">Bootstrap RealEstate</a>
+            <a href="{{ route('view.home') }}">{{ $settings['site_name'] }}</a>
             {{-- <a href="{{ route('view.home') }}"><img src={{ asset('users/images/logo.png') }} alt="Realestate"></a> --}}
         </div>
         <div class="sidebar-brand sidebar-brand-sm">

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostEnquiryController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AgentController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RemittanceController;
@@ -42,6 +43,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
     // Admin Profile routes
     Route::put('profile-password-update/{id}', [ProfileController::class, 'passwordUpdate'])->name('profile-password.update');
     Route::resource('profile', ProfileController::class);
+
+    // Admin Settings routes
+    Route::get('setting', [AdminSettingController::class, 'index'])->name('setting.index');
+    Route::put('setting', [AdminSettingController::class, 'update'])->name('setting.update');
 
     // This route is for the admin Dashboard page Controller
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');

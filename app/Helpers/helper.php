@@ -1,5 +1,4 @@
 <?php
-
 /** Make Sidebar Active */
 
 function setSidebarActive(array $routes): ?string
@@ -19,10 +18,3 @@ function hasPermission(array $permissions)
     return auth()->guard('admin')->user()->hasAnyPermission($permissions);
 }
 
-
-/** Get Setting */
-function getSetting($key)
-{
-    $data = Setting::where('key', $key)->first();
-    return $data->value;
-}

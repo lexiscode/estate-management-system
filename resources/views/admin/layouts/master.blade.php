@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Admin Dashboard &mdash; Bootstrap RealEstate</title>
+  <title>Admin Dashboard &mdash; {{ $settings['site_name'] }}</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -35,17 +35,20 @@
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
 
-      <!-- Includes the sidebar layout here-->
-      @include('admin.layouts.sidebar')
+        <!-- Includes the sidebar layout here-->
+        @include('admin.layouts.sidebar')
 
-      <!-- Main Content -->
-      <div class="main-content">
+        <!-- Main Content -->
+        <div class="main-content">
 
         <!-- Dashboard section -->
         @yield('dashboard')
 
         <!-- Admin Profile section -->
         @yield('index-profile')
+
+        <!-- Admin Settings section -->
+        @yield('index-admin-settings')
 
         <!-- Properties section -->
         @yield('index-properties')
