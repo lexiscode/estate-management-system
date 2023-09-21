@@ -23,7 +23,10 @@
 
 
             <li class="menu-header">Manage Rent Records</li>
-            <li class="dropdown">
+            @php
+            $dropdownActiveClass = setSidebarActive(['admin.remit.*', 'admin.statement.*']);
+            @endphp
+            <li class="dropdown {{ $dropdownActiveClass ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                     <span>Manage Rent Records</span></a>
                 <ul class="dropdown-menu">
@@ -37,6 +40,7 @@
             </li>
 
 
+
             <li class="menu-header">Notifications</li>
             @if (hasPermission(['message index', 'message delete']))
             <li class="{{ setSidebarActive(['admin.post-enquiry.*']) }}"><a class="nav-link" href="{{ route('admin.post-enquiry.index') }}"><i class="far fa-square"></i> <span>Messages</span></a></li>
@@ -44,7 +48,10 @@
 
 
             <li class="menu-header">Access Management</li>
-            <li class="dropdown">
+            @php
+            $accessManagementDropdownActiveClass = setSidebarActive(['admin.role-user.*', 'admin.role.*']);
+            @endphp
+            <li class="dropdown {{ $accessManagementDropdownActiveClass ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                     <span>Roles & Permissions</span></a>
                 <ul class="dropdown-menu">
@@ -71,6 +78,13 @@
             @if (hasPermission(['blog index', 'blog create', 'blog show', 'blog update', 'blog delete']))
             <li class="{{ setSidebarActive(['admin.blog.*']) }}"><a class="nav-link" href="{{ route('admin.blog.index') }}"><i class="far fa-square"></i> <span>Blogs</span></a></li>
             @endif
+
+
+            <li class="menu-header">Manage Site Settings</li>
+            @if (hasPermission(['setting index', 'general-seo-setting create']))
+            <li class="{{ setSidebarActive(['admin.setting.*']) }}"><a class="nav-link" href="{{ route('admin.setting.index') }}"><i class="far fa-square"></i> <span>Settings</span></a></li>
+            @endif
+
         </ul>
 
     </aside>

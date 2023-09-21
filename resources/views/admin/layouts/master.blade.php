@@ -167,6 +167,9 @@
             success_callback: null // Default: null
         });
 
+        // input tags fields in seo settings
+        $(".inputtags").tagsinput('items');
+
 
         /*This below handles the deleting functionality, alongside a <meta> in html header above*/
         // Add csrf token in ajax request
@@ -221,7 +224,6 @@
             })
         })
     </script>
-
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
-/** Make Sidebar Active */
 
+/** Make Sidebar Active */
 function setSidebarActive(array $routes): ?string
 {
     foreach($routes as $route){

@@ -77,7 +77,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-center">#</th>
                             <th class="text-center">Name</th>
                             <th class="text-center">Email</th>
                             <th class="text-center">Role</th>
@@ -92,7 +91,6 @@
                         @else
                             @foreach ($admins as $admin)
                                 <tr class="text-center">
-                                    <td>{{ $admin->id }}</td>
                                     <td>{{ $admin->name }}</td>
                                     <td>{{ $admin->email }}</td>
                                     <td><span class="badge bg-primary text-light">

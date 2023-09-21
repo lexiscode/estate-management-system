@@ -72,7 +72,7 @@
                             <th>Tenant Names</th>
                             <th>Apartment</th>
                             <th><div style="text-align: center;">Payment Status</div></th>
-                            <th>Due Date</th>
+                            <th>Rent Due-Date</th>
                             <th scope="col">
                                 <div style="text-align: center;">Actions</div>
                             </th>
