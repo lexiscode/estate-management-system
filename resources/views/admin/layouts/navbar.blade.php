@@ -54,9 +54,12 @@
                 <a href="{{ route('admin.profile.index') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
+
+                @if (hasPermission(['setting index', 'general-seo-setting update']))
                 <a href="{{ route('admin.setting.index') }}" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
+                @endif
 
                 <div class="dropdown-divider"></div>
 
