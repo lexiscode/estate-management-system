@@ -27,7 +27,7 @@
 
     <!-- Header Starts -->
     <div class="header">
-        <a href="{{ route('view.home') }}"><img src={{ asset('users/images/logo.png') }} alt="Realestate"></a>
+        <a href="{{ route('view.home') }}"><img src="{{ asset($settings['site_logo']) }}" alt="Realestate"></a>
 
         <ul class="pull-right">
             <li><a href="{{ route('view.buysalerent') }}">Buy</a></li>
