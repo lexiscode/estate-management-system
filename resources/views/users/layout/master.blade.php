@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="icon" href="{{ asset($settings['site_favicon']) }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('users/assets/bootstrap/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('users/assets/style.css') }}" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>

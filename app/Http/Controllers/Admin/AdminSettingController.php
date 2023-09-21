@@ -7,8 +7,9 @@ use App\Models\PostEnquiry;
 use Illuminate\Http\Request;
 use App\Traits\FileUploadTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AdminGeneralSettingUpdateRequest;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\AdminSeoSettingUpdateRequest;
+use App\Http\Requests\AdminGeneralSettingUpdateRequest;
 
 
 
@@ -30,7 +31,7 @@ class AdminSettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AdminGeneralSettingUpdateRequest $request) : RedirectResponse
+    public function updateGeneralSetting(AdminGeneralSettingUpdateRequest $request) : RedirectResponse
     {
         $logoPath = $this->handleFileUpload($request, 'site_logo');
         $faviconPath = $this->handleFileUpload($request, 'site_favicon');
@@ -55,6 +56,31 @@ class AdminSettingController extends Controller
         }
 
         toast('Updated Successfully!', 'success')->width('400');
+
+        return redirect()->back();
+    }
+
+
+    function updateSeoSetting(AdminSeoSettingUpdateRequest $request) : RedirectResponse {
+
+        Setting::updateOrCreate(
+            ['key' => 'site_seo_title'],
+            ['value' => $request->site_seo_title]
+        );
+
+
+        Setting::updateOrCreate(
+            ['key' => 'site_seo_description'],
+            ['value' => $request->site_seo_description]
+        );
+
+
+        Setting::updateOrCreate(
+            ['key' => 'site_seo_keywords'],
+            ['value' => $request->site_seo_keywords]
+        );
+
+        toast(__('Updated Successfully!'), 'success')->width('400');
 
         return redirect()->back();
     }

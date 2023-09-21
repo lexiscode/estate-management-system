@@ -1,9 +1,10 @@
 <div class="card border border-primary">
     <div class="card-body">
-        <form action="{{ route('admin.setting.update') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.general-setting.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
+            {{-- NB: Don't add the value attributes yet, until there's first contents in the database --}}
             <div class="form-group">
                 <label for="">Site Name</label>
                 <input type="text" name="site_name" class="form-control" value="{{ $settings['site_name'] }}">

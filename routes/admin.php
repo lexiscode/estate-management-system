@@ -46,7 +46,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware'=> ['admin']], 
 
     // Admin Settings routes
     Route::get('setting', [AdminSettingController::class, 'index'])->name('setting.index');
-    Route::put('setting', [AdminSettingController::class, 'update'])->name('setting.update');
+    Route::put('general-setting', [AdminSettingController::class, 'updateGeneralSetting'])->name('general-setting.update');
+    Route::put('seo-setting', [AdminSettingController::class, 'updateSeoSetting'])->name('seo-setting.update');
 
     // This route is for the admin Dashboard page Controller
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');

@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+
   <title>Admin Dashboard &mdash; {{ $settings['site_name'] }}</title>
+  <link rel="icon" href="{{ asset($settings['site_favicon']) }}" type="image/png">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/bootstrap/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/fontawesome/css/all.min.css') }}">
 
   <!-- CSS Libraries -->
+  <link rel="stylesheet" href="assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/jqvmap/dist/jqvmap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/weather-icon/css/weather-icons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('admin/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
@@ -126,14 +129,14 @@
     <script src="{{ asset('admin/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('admin/assets/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('admin/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
-
+    <script src="{{ asset('admin/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
     <script src="{{ asset('admin/assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('admin/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('admin/assets/js/page/index-0.js') }}"></script>
-
     <script src="{{ asset('admin/assets/js/page/features-post-create.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/page/forms-advanced-forms.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
