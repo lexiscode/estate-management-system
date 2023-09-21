@@ -54,18 +54,6 @@
                     </div>
                 @endif
 
-                <!-- Display new talent data row deletion success message if it exists -->
-                @if (session('delete-success'))
-                    <div class="alert alert-danger alert-dismissible show fade">
-                        <div class="alert-body">
-                            <button class="close" data-dismiss="alert">
-                                <span>×</span>
-                            </button>
-                            {{ session('delete-success') }}
-                        </div>
-                    </div>
-                @endif
-
                 <!-- The filter field -->
                 <div class="mb-3">
                     <label for="statusFilter" class="form-label">Filter by Status:</label>
@@ -122,14 +110,9 @@
                                             <i class="far fa-edit"></i>
                                         </a>
 
-                                        <form method="POST"
-                                            action="{{ route('admin.remit.destroy', $remittance->id) }}"
-                                            style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                        </form>
+                                        <a href="{{ route('admin.remit.destroy', $remittance->id) }}" class="btn btn-danger delete-item">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
 
                                     </div>
                                 </td>

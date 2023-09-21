@@ -13,19 +13,6 @@
             </div>
             <div class="card-body">
 
-                <!-- Display deletion success message if it exists -->
-                @if (session('delete-success'))
-                    <div class="alert alert-danger alert-dismissible show fade">
-                        <div class="alert-body">
-                            <button class="close" data-dismiss="alert">
-                                <span>×</span>
-                            </button>
-                            {{ session('delete-success') }}
-                        </div>
-                    </div>
-                @endif
-
-
                 @if ($post_enquiries->isEmpty())
                     <p>No property enquiries found.</p>
                 @else
@@ -55,16 +42,9 @@
                                     <p>Message: {{ $post_enquiry->message }}</p>
                                     <br>
 
-                                    <form method="POST"
-                                        action="{{ route('admin.post-enquiry.destroy', $post_enquiry->id) }}"
-                                        style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button type='submit' class="btn btn-danger btn-action"><i
-                                                class="fas fa-trash"></i></button>
-
-                                    </form>
+                                    <a href="{{ route('admin.post-enquiry.destroy', $post_enquiry->id) }}" class="btn btn-danger delete-item">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
 
                                 </div>
 

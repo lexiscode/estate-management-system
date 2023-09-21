@@ -46,8 +46,12 @@ class PostEnquiryController extends Controller
 
     public function destroy(PostEnquiry $post_enquiry)
     {
-        $post_enquiry->delete();
+        try{
+            $post_enquiry->delete();
+            return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
 
-        return redirect()->back()->with('delete-success', 'Enquiry has been deleted successfully!');
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('Something went wrong!')]);
+        }
     }
 }

@@ -76,7 +76,6 @@
                         <div class="form-group">
                             <label for="role">Role</label>
                             <select name="role" id="role" class="form-control">
-                                <option>{{__('--Select--')}}</option>
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->name }}">{{ $role->name }}</option>
                                 @endforeach

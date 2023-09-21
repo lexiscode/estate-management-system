@@ -100,16 +100,21 @@ class RolePermissionController extends Controller
 
     public function destroy(string $id)
     {
-        $role = Role::findOrFail($id);
+        try{
 
-        // blocks other users from accessing Super Admin's delete functionality via url
-        if($role->name === 'Super Admin'){
-            return redirect()->back()->with('delete-error', 'You cannot delete the Super Admin!');
+            $role = Role::findOrFail($id);
+
+            // blocks other users from accessing Super Admin's delete functionality via url
+            if ($role->name === 'Super Admin'){
+                return response(['status' => 'error', 'message' => __('Can\'t Delete This One!')]);
+            }
+
+            $role->delete();
+            return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
+
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('Something went wrong!')]);
         }
-
-        $role->delete();
-
-        return redirect()->back()->with('delete-success', 'Role has been deleted successfully!');
     }
 }
 

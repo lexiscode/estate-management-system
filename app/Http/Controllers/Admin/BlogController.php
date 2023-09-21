@@ -149,8 +149,12 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        $blog->delete();
+        try{
+            $blog->delete();
+            return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
 
-        return redirect()->route('admin.blog.index')->with('success', 'Post deleted successfully');
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('Something went wrong!')]);
+        }
     }
 }

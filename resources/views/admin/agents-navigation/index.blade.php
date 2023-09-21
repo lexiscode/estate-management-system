@@ -82,16 +82,9 @@
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
 
-                                            <form method="POST"
-                                                action="{{ route('admin.agent.destroy', $agent->id) }}"
-                                                style="display: inline;">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <button type='submit' class="btn btn-danger btn-action"><i
-                                                        class="fas fa-trash"></i></button>
-
-                                            </form>
+                                            <a href="{{ route('admin.agent.destroy', $agent->id) }}" class="btn btn-danger delete-item">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
 
                                         </div>
                                     </td>

@@ -143,9 +143,14 @@ class AgentController extends Controller
      */
     public function destroy(Agent $agent)
     {
-        $agent->delete();
 
-        return redirect()->route('admin.agent.index')->with('success', 'Agent deleted successfully');
+        try{
+            $agent->delete();
+            return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
+
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('Something went wrong!')]);
+        }
     }
 }
 

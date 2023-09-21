@@ -157,10 +157,15 @@ class RemittanceController extends Controller
      */
     public function destroy(string $id)
     {
-        $remittance = Remittance::findOrFail($id);
+        try{
 
-        $remittance->delete();
+            $remittance = Remittance::findOrFail($id);
+         
+            $remittance->delete();
+            return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
 
-        return redirect()->back()->with('delete-success', 'Tenant data row has been deleted successfully');
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('Something went wrong!')]);
+        }
     }
 }

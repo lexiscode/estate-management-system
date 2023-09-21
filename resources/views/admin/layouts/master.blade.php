@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
   <title>Admin Dashboard &mdash; {{ $settings['site_name'] }}</title>
   <link rel="icon" href="{{ asset($settings['site_favicon']) }}" type="image/png">
@@ -145,7 +146,17 @@
     <!-- Filter search JS File -->
     <script src="{{ asset("admin/assets/js/filter.js") }}"></script>
 
+    @stack('scripts') // renders js code in a specific blade view file only
+
+    <!-- SweetAlert by realrashid-->
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
+    @include('sweetalert::alert')
+
+    <!-- SweetAlert 2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
+        /* Handles Image Preview*/
         $.uploadPreview({
             input_field: "#image-upload", // Default: .image-upload
             preview_box: "#image-preview", // Default: .image-preview
@@ -155,11 +166,61 @@
             no_label: false, // Default: false
             success_callback: null // Default: null
         });
-    </script>
-    @stack('scripts') // renders js code in a specific blade view file only
 
-    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
-    @include('sweetalert::alert')
+
+        /*This below handles the deleting functionality, alongside a <meta> in html header above*/
+        // Add csrf token in ajax request
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        //Handle Dynamic delete
+        $(document).ready(function() {
+            $('.delete-item').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        let url = $(this).attr('href');
+                        console.log(url);
+                        $.ajax({
+                            method: 'DELETE',
+                            url: url,
+                            success: function(data) {
+                                if (data.status === 'success') {
+                                    Swal.fire(
+                                        'Deleted!',
+                                        data.message,
+                                        'success'
+                                    )
+                                    window.location.reload();
+                                } else if (data.status === 'error') {
+                                    Swal.fire(
+                                        'Error!',
+                                        data.message,
+                                        'error'
+                                    )
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error(error);
+                            }
+                        });
+
+
+                    }
+                })
+            })
+        })
+    </script>
 
 
 </body>

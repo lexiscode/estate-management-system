@@ -109,16 +109,9 @@
                                                     <i class="far fa-edit"></i>
                                                 </a>
 
-                                                <form method="POST"
-                                                    action="{{ route('admin.role.destroy', $role->id) }}"
-                                                    style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-
-                                                    <button type='submit' class="btn btn-danger btn-action"><i
-                                                            class="fas fa-trash"></i></button>
-
-                                                </form>
+                                                <a href="{{ route('admin.role.destroy', $role->id) }}" class="btn btn-danger delete-item">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
                                             </div>
                                         @endif
 

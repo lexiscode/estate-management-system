@@ -230,12 +230,16 @@ class PropertyController extends Controller
      */
     public function destroy(string $id)
     {
-        $property = Property::findOrFail($id);
+        try{
 
-        // Delete the property and its related availability (if any)
-        $property->delete();
+            $property = Property::findOrFail($id);
+            // Delete the property and its related availability (if any)
+            $property->delete();
+            return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
 
-        return redirect()->back()->with('delete-success', 'Property deleted successfully');
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('Something went wrong!')]);
+        }
     }
 
 }

@@ -130,9 +130,8 @@ class RoleUserController extends Controller
         ->with('success', 'Updated the user and their role successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    /*Remove the specified resource from storage.
+
     public function destroy(string $id)
     {
         $user = Admin::findOrFail($id);
@@ -146,5 +145,23 @@ class RoleUserController extends Controller
 
         return redirect()->back()
             ->with('delete-success', 'User has been deleted successfully!');
+    }*/
+    public function destroy(string $id)
+    {
+        try{
+
+            $user = Admin::findOrFail($id);
+
+            if ($user->getRoleNames()->first() === 'Super Admin'){
+                return response(['status' => 'error', 'message' => __('Can\'t Delete This One!')]);
+            }
+
+            $user->delete();
+            return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
+
+        } catch (\Throwable $th) {
+            return response(['status' => 'error', 'message' => __('Something went wrong!')]);
+        }
     }
+
 }
