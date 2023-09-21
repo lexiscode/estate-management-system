@@ -24,7 +24,7 @@
             <div class="card-body">
 
                 <!-- This is a form to create new blog post -->
-                <form method="POST" action="{{ route('admin.blog.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.blog.store') }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                     @csrf
 
                     <div class="card-body">
@@ -39,6 +39,12 @@
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="title">Title</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="text" class="form-control" name="title" id="title">
+                                <div class="invalid-feedback">
+                                    Please fill in a title
+                                </div>
+                                @error('title')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -50,6 +56,9 @@
                                       <label for="image-upload" id="image-label">Choose File</label>
                                       <input type="file" name="image" id="image-upload" />
                                     </div>
+                                    @error('image')
+                                        <p class='text-danger'>{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -58,6 +67,9 @@
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" for="content">Content</label>
                             <div class="col-sm-12 col-md-7">
                                 <textarea name="content" class="summernote-simple" id="content">Your content goes here...</textarea>
+                                @error('content')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
 
                         </div>

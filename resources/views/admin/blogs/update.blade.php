@@ -23,7 +23,7 @@
             </div>
             <div class="card-body">
                 <!-- This is a form to update a property-->
-                <form method="POST" action="{{ route('admin.blog.update', ['blog' => $blog->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.blog.update', ['blog' => $blog->id]) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                     @csrf
                     @method('PUT')
 
@@ -38,7 +38,10 @@
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="title">Title</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" name="title" id="title" value="{{ $blog->title }}">
+                                <input type="text" class="form-control" name="title" id="title" value="{{ $blog->title }}" required>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please fill in a title
                             </div>
                             @error('title')
                                 <p class="text-danger">{{ $message }}</p>
@@ -63,10 +66,10 @@
 
                             <div class="col-sm-12 col-md-7">
                                 <textarea class="summernote-simple" name="content" id="content">{{ $blog->content }}</textarea>
+                                @error('content')
+                                <   p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
-                            @error('content')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
 
                         </div>
                         <div class="form-group row mb-4">

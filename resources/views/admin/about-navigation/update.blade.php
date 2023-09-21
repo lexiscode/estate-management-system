@@ -26,8 +26,7 @@
                 @endif
 
 
-                <!-- This is a form to create new blog post -->
-                <form method="POST" action="{{ route('admin.about.update', ['about' => $about->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.about.update', ['about' => $about->id]) }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
@@ -35,14 +34,26 @@
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="background">Business Background</label>
                             <div class="col-sm-12 col-md-7">
-                                <textarea class="form-control" name="background" id="background" spellcheck="false" data-ms-editor="true">{{ $about->background }}</textarea>
+                                <textarea name="background" class="summernote-simple" id="background">{{ $about->background }}</textarea>
+                                <div class="invalid-feedback">
+                                    Please fill in a business background
+                                </div>
+                                @error('background')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3" id="profile">Company Profile</label>
                             <div class="col-sm-12 col-md-7">
-                                <textarea class="form-control" name="profile" id="profile" spellcheck="false" data-ms-editor="true">{{ $about->profile }}</textarea>
+                                <textarea name="profile" class="summernote-simple" id="profile">{{ $about->profile }}</textarea>
+                                <div class="invalid-feedback">
+                                    Please fill in company's profile information
+                                </div>
+                                @error('profile')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
@@ -50,7 +61,13 @@
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Upload Image</label>
                             <div class="col-sm-12 col-md-7">
                                 <div class="form-group col-md-5">
-                                    <input type="file" class="form-control" name="image" id="uploadImage" required>
+                                    <div id="image-preview" class="image-preview">
+                                        <label for="image-upload" id="image-label">Choose File</label>
+                                        <input type="file" name="image" id="image-upload" />
+                                    </div>
+                                    @error('image')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -71,3 +88,18 @@
 
     </section>
 @endsection
+
+@push('scripts')
+
+    <script>
+        $(document).ready(function(){
+            var imageUrl = "{{ asset('uploads/about/' . $about->image) }}";
+            $('.image-preview').css({
+                "background-image": "url(" + imageUrl + ")",
+                "background-size": "cover",
+                "background-position": "center center"
+            });
+        });
+    </script>
+
+@endpush

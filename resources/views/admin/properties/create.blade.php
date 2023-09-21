@@ -24,17 +24,23 @@
             <div class="card-body">
 
                 <!-- This is a form to create new property-->
-                <form method="POST" action="{{ route('admin.property.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.property.store') }}" enctype="multipart/form-data" class="needs-validation" novalidate="">
                     @csrf
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputTitle">Title</label>
                                 <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Name of Apartment">
+                                <div class="invalid-feedback">
+                                    Please fill in a title
+                                </div>
+                                @error('title')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="property-type">Property Type</label>
-                                <select class="form-control form-control-sm" name="property_type">
+                                <select class="form-control form-control-sm" name="property_type" required>
                                     <option value="One-Bedroom Apartment">One-Bedroom Apartment</option>
                                     <option value="Two-Bedroom Apartment">Two-Bedroom Apartment</option>
                                     <option value="Three-Bedroom Apartment">Three-Bedroom Apartment</option>
@@ -47,17 +53,35 @@
                         <div class="form-group">
                             <label for="inputAddress">Address</label>
                             <input type="text" name="location" class="form-control" id="inputAddress" placeholder="Enter the address">
+                            <div class="invalid-feedback">
+                                Please fill in a location
+                            </div>
+                            @error('location')
+                                <p class='text-danger'>{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="property-details">Property Details</label>
                             <textarea class="form-control" name="property_details" id="property-details"></textarea>
+                            <div class="invalid-feedback">
+                                Please fill in details of property
+                            </div>
+                            @error('property_details')
+                                <p class='text-danger'>{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputPrice">Price:</label>
                                 <input type="text" name="price" class="form-control" id="inputPrice">
+                                <div class="invalid-feedback">
+                                    Please fill in a price
+                                </div>
+                                @error('price')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="uploadImage">Upload Image:</label>
@@ -65,7 +89,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="inputStatus">Status</label>
-                                <select class="form-control form-control-sm" name="status">
+                                <select class="form-control form-control-sm" name="status" required>
                                     <option>New</option>
                                     <option>Sold</option>
                                     <option>Rent</option>
@@ -77,10 +101,22 @@
                             <div class="form-group col-md-6">
                                 <label for="inputAgentName">Name of Agent:</label>
                                 <input type="text" name="agent_name" class="form-control" id="inputAgentName" placeholder="Input the name of agent..">
+                                <div class="invalid-feedback">
+                                    Please fill in an agent name
+                                </div>
+                                @error('agent_name')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="form-group col-md-5">
-                                <label for="inputAgentNumber">Phone Number of Agent:</label>
+                                <label for="inputAgentNumber">Contact Number of Agent:</label>
                                 <input type="text" name="agent_no" class="form-control" id="inputAgentNumber" placeholder="Enter Phone Number">
+                                <div class="invalid-feedback">
+                                    Please fill in the agent contact number
+                                </div>
+                                @error('agent_no')
+                                    <p class='text-danger'>{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>

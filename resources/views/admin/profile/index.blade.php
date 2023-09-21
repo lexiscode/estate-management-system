@@ -97,6 +97,9 @@
                                     <div class="invalid-feedback">
                                         Please re-fill the same new password here
                                     </div>
+                                    @error('password_confirmation')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                             </div>

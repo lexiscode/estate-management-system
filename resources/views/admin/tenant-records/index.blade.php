@@ -32,21 +32,23 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label>Names Of Tenants:</label>
-                                <select class="form-control select2" name="name_of_tenant" multiple="">
+                                <label>Find A Tenant:</label>
+                                <select class="form-control select2" name="name_of_tenant" multiple="" required>
                                     @foreach ($all_tenant as $tenant)
                                         <option>{{ $tenant }}</option>
                                     @endforeach
                                 </select>
+
                             </div>
 
                             <div class="form-group col-md-4">
-                                <label>List Of Apartments:</label>
-                                <select class="form-control select2" name="name_of_apartment" multiple="">
+                                <label>Find The Apartment:</label>
+                                <select class="form-control select2" name="name_of_apartment" multiple="" required>
                                     @foreach ($all_apartment as $apartment)
                                         <option>{{ $apartment }}</option>
                                     @endforeach
                                 </select>
+
                             </div>
 
                             <div class="form-group col-md-4">
@@ -78,7 +80,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Names Of Tenants:</label>
-                                <select class="form-control select2" name="name_of_tenant" multiple="">
+                                <select class="form-control select2" name="name_of_tenant" multiple="" required>
                                     @foreach ($all_tenant as $tenant)
                                         <option>{{ $tenant }}</option>
                                     @endforeach
@@ -87,7 +89,7 @@
 
                             <div class="form-group col-md-4">
                                 <label>List Of Apartments:</label>
-                                <select class="form-control select2" name="name_of_apartment" multiple="">
+                                <select class="form-control select2" name="name_of_apartment" multiple="" required>
                                     @foreach ($all_apartment as $apartment)
                                         <option>{{ $apartment }}</option>
                                     @endforeach
@@ -123,7 +125,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Names Of Tenants:</label>
-                                <select class="form-control select2" name="name_of_tenant" multiple="">
+                                <select class="form-control select2" name="name_of_tenant" multiple="" required>
                                     @foreach ($all_tenant as $tenant)
                                         <option>{{ $tenant }}</option>
                                     @endforeach
@@ -132,7 +134,7 @@
 
                             <div class="form-group col-md-4">
                                 <label>List Of Apartments:</label>
-                                <select class="form-control select2" name="name_of_apartment" multiple="">
+                                <select class="form-control select2" name="name_of_apartment" multiple="" required>
                                     @foreach ($all_apartment as $apartment)
                                         <option>{{ $apartment }}</option>
                                     @endforeach

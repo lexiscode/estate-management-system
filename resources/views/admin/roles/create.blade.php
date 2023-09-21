@@ -24,13 +24,16 @@
             <div class="card-body">
 
                 <!-- This is a form to create new property-->
-                <form method="POST" action="{{ route('admin.role.store') }}">
+                <form method="POST" action="{{ route('admin.role.store') }}" class="needs-validation" novalidate="">
                     @csrf
                     <div class="card-body">
 
                         <div class="form-group">
                             <label for="role">Role Name</label>
                             <input type="text" name="role" class="form-control" id="role">
+                            <div class="invalid-feedback">
+                                Please fill in a role name
+                            </div>
                             @error('role')
                                 <p class='text-danger'>{{ $message }}</p>
                             @enderror

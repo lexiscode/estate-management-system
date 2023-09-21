@@ -30,10 +30,22 @@
                         <div class="form-group col-md-4">
                             <label for="inputTenant">Name Of Tenant:</label>
                             <input type="text" name="tenant_name" class="form-control" id="inputTenant" value="{{ $remittance->tenant_name }}" required>
+                            <div class="invalid-feedback">
+                                Please fill in the tenant name
+                            </div>
+                            @error('tenant_name')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="form-group col-md-5">
                             <label for="apartment">Apartment:</label>
                             <input type="text" class="form-control" name="apartment" id="apartment" value="{{ $remittance->apartment }}" placeholder="Enter name or location of the apartment" required>
+                            <div class="invalid-feedback">
+                                Please fill in apartment name
+                            </div>
+                            @error('apartment')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="form-group col-md-3">
                             <label for="selectStatus">Payment Status:</label>
@@ -56,14 +68,32 @@
                         <div class="form-group col-md-4">
                             <label for="inputRentAmount">Actual Rent Fee:</label>
                             <input type="number" name="rent_fee" class="form-control" id="inputRentAmount" value="{{ $remittance->amount_paid }}" required>
+                            <div class="invalid-feedback">
+                                Please fill in the actual rent fee
+                            </div>
+                            @error('rent_fee')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputPaidAmount">Amount Paid:</label>
                             <input type="number" name="amount_paid" class="form-control" id="inputPaidAmount" value="{{ $remittance->amount_paid }}" required>
+                            <div class="invalid-feedback">
+                                Please fill in the amount paid
+                            </div>
+                            @error('amount_paid')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
                             <label for="payment_date">Date Of Payment:</label>
                             <input type="date" class="form-control" name="payment_date" id="payment_date" value="{{ $remittance->payment_date }}" required>
+                            <div class="invalid-feedback">
+                                Please fill in the payment date
+                            </div>
+                            @error('payment_date')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
 
                     </div>
@@ -80,6 +110,12 @@
                         <div class="form-group col-md-4">
                             <label for="rent_due_date">Rent Due-Date:</label>
                             <input type="date" name="rent_due_date" class="form-control" id="rent_due_date" value="{{ $remittance->rent_due_date }}" required>
+                            <div class="invalid-feedback">
+                                Please fill in the rent due-date
+                            </div>
+                            @error('rent_due_date')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
 
                     </div>
