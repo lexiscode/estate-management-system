@@ -17,7 +17,7 @@
                             <h4>Total Admin</h4>
                         </div>
                         <div class="card-body">
-                            10
+                            NaN
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                             <h4>News</h4>
                         </div>
                         <div class="card-body">
-                            42
+                            NaN
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                             <h4>Reports</h4>
                         </div>
                         <div class="card-body">
-                            1,201
+                            NaN
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                             <h4>Online Users</h4>
                         </div>
                         <div class="card-body">
-                            47
+                            NaN
                         </div>
                     </div>
                 </div>
