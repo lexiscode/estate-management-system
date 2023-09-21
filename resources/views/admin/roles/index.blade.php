@@ -99,7 +99,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <!-- This if condition below, hides the edit and delete button for Super Admin, also
+                                        <!-- This if condition below, hides the edit and delete button to Super Admin role-user, also
                                         don't forget that we also have to block the url routes via controller methods of these
                                         two functionalities, in case a user tries to access them via url-->
                                         @if ($role->name != 'Super Admin')

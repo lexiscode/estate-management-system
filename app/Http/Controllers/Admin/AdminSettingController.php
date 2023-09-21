@@ -17,6 +17,14 @@ class AdminSettingController extends Controller
 {
     use FileUploadTrait;
 
+    // permissions management
+    public function __construct()
+    {
+        $this->middleware('role_or_permission:setting index,admin')->only('index');
+        $this->middleware('role_or_permission:general-seo-setting update,admin')
+                ->only('updateGeneralSetting', 'updateSeoSetting');
+    }
+
     /**
      * Display a listing of the resource.
      */
