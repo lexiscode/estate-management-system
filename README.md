@@ -24,7 +24,6 @@
 - Efficient rental records management system.
 - Tenant information tracking, lease agreements, and payment records.
 - Granular permissions system for data access control.
-- [Add more specific features and functionalities]
 
 ## Getting Started
 
@@ -32,7 +31,9 @@
 
 Before you begin, ensure you have met the following requirements:
 
-- [List any prerequisites, such as PHP, Laravel, MySQL, etc., and provide links to installation guides]
+- Ensure you already have PHP 8.1 or above installed
+- Ensure you have Composer installed
+- Ensure you have a webserver, like Laragon installed
 
 ### Installation
 
