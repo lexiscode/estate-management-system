@@ -1,5 +1,5 @@
 
-# Real Estate Marketplace
+# Real Estate Marketplace with Admin Panel
 
 **Description:** This project is a Laravel-based real estate marketplace with a feature-rich admin panel for managing various aspects of the platform. It includes user-friendly frontend interfaces for property listings and inquiries, robust backend tools for customization, user management, rental records, and access control.
 
